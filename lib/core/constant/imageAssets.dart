@@ -6,5 +6,6 @@ class AppImageassets {
   static const String logo = '$rootImages/logo.png';
   static const String login = '$rootImages/login.png';
   static const String signup = '$rootImages/signup.png';
+  static const String googleIcon = '$rootImages/google_icon.png';
 }
 // assets/images/onboardingfour.PNG

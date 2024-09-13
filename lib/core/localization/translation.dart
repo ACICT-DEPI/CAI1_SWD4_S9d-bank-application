@@ -52,6 +52,9 @@ class MyTranslation extends Translations {
           '41': 'Re-enter your password',
           '42': 'Re-enter password',
           '43': 'Add new password',
+          '44': 'Forget Password',
+          '45': 'Reset Password',
+          '46': 'Success Reset password',
         },
         'ar': {
           '1': 'اختر لغتك',
@@ -99,6 +102,9 @@ class MyTranslation extends Translations {
           '41': 'أعد إدخال كلمة المرور',
           '42': 'إدخال كلمة المرور',
           '43': 'إضافة كلمة مرور جديدة',
+          '44': 'نسيت كلمة المرور',
+          '45': 'إعادة تعيين كلمة المرور',
+          '46': 'نجاح إعادة تعيين كلمة المرور',
         },
       };
 }

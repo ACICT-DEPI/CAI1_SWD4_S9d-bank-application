@@ -19,7 +19,7 @@ class ForgetPassword extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Forget Password',
+          '44'.tr,
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                 color: AppColor.grey,
                 fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class ForgetPassword extends StatelessWidget {
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      CustomTextTitleAuth(title: 'Check your email'),
+                      CustomTextTitleAuth(title: '31'),
                       const SizedBox(height: 10),
                       CustomTextBodyAuth(
                           title:

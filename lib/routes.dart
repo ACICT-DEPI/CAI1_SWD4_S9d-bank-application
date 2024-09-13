@@ -7,6 +7,7 @@ import 'package:vaulta/screen/auth/login.dart';
 import 'package:vaulta/screen/auth/signup.dart';
 import 'package:vaulta/screen/auth/success_sign_up.dart';
 import 'package:vaulta/screen/auth/verify_code_sign_up.dart';
+import 'package:vaulta/screen/home.dart';
 import 'package:vaulta/screen/language.dart';
 import 'package:vaulta/screen/onboarding.dart';
 
@@ -16,7 +17,7 @@ import 'middleware/my_middleware.dart';
 List<GetPage<dynamic>>? routes = [
   GetPage(
       name: '/', page: () => const Language(), middlewares: [MyMiddleware()]),
-  GetPage(name: AppRoute.login, page: () => const Login()),
+  GetPage(name: AppRoute.login, page: () => Login()),
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
   GetPage(name: AppRoute.forgetPassword, page: () => const ForgetPassword()),
   GetPage(name: AppRoute.resetPassword, page: () => const ResetPassword()),
@@ -28,6 +29,8 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoute.verifyCodeSignUp, page: () => const VerifyCodeSignUp()),
   GetPage(name: AppRoute.verifiedCode, page: () => const VerifyCode()),
   GetPage(name: AppRoute.onboarding, page: () => const Onboarding()),
+  GetPage(name: AppRoute.home, page: () => const HomeScreen()),
+  GetPage(name: AppRoute.language, page: () => const Language()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routes = {

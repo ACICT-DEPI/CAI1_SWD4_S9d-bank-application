@@ -15,7 +15,7 @@ class SuccessResetPassword extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '15'.tr,
+          '45'.tr,
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                 color: AppColor.grey,
                 fontWeight: FontWeight.bold,
@@ -38,7 +38,7 @@ class SuccessResetPassword extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              '16'.tr,
+              '46'.tr,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

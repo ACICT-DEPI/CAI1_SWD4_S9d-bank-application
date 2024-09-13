@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/widget/auth/logo_auth.dart';
@@ -5,7 +8,7 @@ import 'package:vaulta/widget/auth/logo_auth.dart';
 import '../../../core/constant/color.dart';
 import '../../controller/auth/signup_controller.dart';
 import '../../core/constant/imageAssets.dart';
-import '../../core/functions/alert_exit_app.dart';
+import '../../core/functions/awesome_dialoge.dart';
 import '../../core/functions/valid_input.dart';
 import '../../widget/auth/custom_button_auth.dart';
 import '../../widget/auth/custom_textFormAuth.dart';
@@ -33,7 +36,16 @@ class SignUp extends StatelessWidget {
           backgroundColor: AppColor.backgroundColor,
         ),
         body: WillPopScope(
-          onWillPop: alertExitApp,
+          onWillPop: () => showAwesomeDialog(context,
+              title: 'Exit',
+              desc: 'Are you sure you want to go out.',
+              onOk: () {
+                exit(0);
+              },
+              dialogType: DialogType.warning,
+              onCancel: () {
+                Get.back();
+              }),
           child: Container(
             color: AppColor.backgroundColor,
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),

@@ -14,6 +14,7 @@ class Assets {
       'assets/fonts/Cairo/Cairo-Regular.ttf';
   static const String cairoCairoSemiBold =
       'assets/fonts/Cairo/Cairo-SemiBold.ttf';
+  static const String imagesImg = 'assets/images/google_icon.png';
   static const String imagesLogin = 'assets/images/login.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesOne = 'assets/images/one.png';
