@@ -10,23 +10,31 @@ class CustomButtonAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 10),
+    return Padding(
+      padding: const EdgeInsets.only(left: 24, right: 24, top: 24),
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          backgroundColor: AppColor.primaryColor,
-          padding: const EdgeInsets.symmetric(vertical: 15),
-          elevation: 5,
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.circular(20.0), // Set the border radius here
+          )),
+          backgroundColor: MaterialStateProperty.all<Color>(
+            AppColor.primaryColor,
+          ), // Set the button background color here
+          minimumSize: MaterialStateProperty.all<Size>(const Size(327, 44)),
+          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+              const EdgeInsets.all(20)),
         ),
-        onPressed: onPressed,
+        onPressed: () {
+          onPressed();
+        },
         child: Text(
           title,
           style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
           ),
         ),
       ),

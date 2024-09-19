@@ -11,4 +11,11 @@ class AppRoute {
   static const String verifyCodeSignUp = '/verifyCodeSignUp';
   static const String home = '/home';
   static const String language = '/language';
+  static const String transfer = '/transfer';
+  static const String confirmTransfer = '/confirmTransfer';
+  static const String successTransfer = '/successTransfer';
+  static const String transactionReport = '/transactionReport';
+  static const String homePage = '/homepage';
+  static const String exchangeScreen = '/exchange';
+  static const String settingsScreen = '/settings';
 }

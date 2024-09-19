@@ -6,6 +6,7 @@ import '../core/constant/routes.dart';
 
 abstract class HomeController extends GetxController {
   signOut();
+  goToTransferScreen();
 }
 
 class HomeControllerImpl extends HomeController {
@@ -15,5 +16,10 @@ class HomeControllerImpl extends HomeController {
     await FirebaseAuth.instance.signOut();
     myServices.sharedPreferences.remove('userid');
     Get.offNamed(AppRoute.login);
+  }
+
+  @override
+  goToTransferScreen() {
+    Get.offNamed(AppRoute.transfer);
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vaulta/core/constant/color.dart';
+import 'package:vaulta/core/constant/imageAssets.dart';
 
 import '../../../../controller/auth/success_reset_password_controller.dart';
-import '../../../../core/constant/color.dart';
-import '../../../widget/auth/custom_button_auth.dart';
 
 class SuccessResetPassword extends StatelessWidget {
   const SuccessResetPassword({super.key});
@@ -13,56 +13,60 @@ class SuccessResetPassword extends StatelessWidget {
     SuccessResetPasswordControllerImpl controller =
         Get.put(SuccessResetPasswordControllerImpl());
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '45'.tr,
-          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                color: AppColor.grey,
-                fontWeight: FontWeight.bold,
-              ),
-        ),
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: AppColor.backgroundColor,
-      ),
       body: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              child: const Icon(
-                Icons.check_circle,
-                color: AppColor.primaryColor,
-                size: 200,
-              ),
+            // Illustration Image
+            Image.asset(
+              AppImageassets
+                  .resetPasswordImage, // Update this with the correct image asset path
+              height: 200,
             ),
-            const SizedBox(height: 20),
-            Text(
-              '46'.tr,
+            const SizedBox(height: 30),
+
+            // Title
+            const Text(
+              "Email sent successfully!",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: Color(0xFF4B4FCF),
               ),
+              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 10),
-            Text(
-              '32'.tr,
+            const SizedBox(height: 16),
+
+            // Subtitle
+            const Text(
+              "We have sent an email to reset your password. Please check your email to complete the process.",
               style: TextStyle(
                 fontSize: 16,
+                color: Colors.black54,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+
+            // Button
+            ElevatedButton(
+              onPressed: () {
+                controller.goToLogin();
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.primaryColor, // Button color
+                padding: const EdgeInsets.symmetric(
+                    vertical: 16, horizontal: 80), // Button size
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text(
+                "Ok",
+                style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
-            Spacer(),
-            Container(
-              width: double.infinity,
-              child: CustomButtonAuth(
-                title: '18'.tr,
-                onPressed: () {
-                  print('go to login');
-                  controller.goToLogin();
-                },
-              ),
-            ),
-            SizedBox(height: 30),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/controller/home_controller.dart';
+import 'package:vaulta/core/constant/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,8 +23,21 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: Text('Home Screen'),
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.offAllNamed(AppRoute.transfer);
+                },
+                child: Text('Go to Transfer')),
+            ElevatedButton(
+                onPressed: () {
+                  Get.offAllNamed(AppRoute.transactionReport);
+                },
+                child: Text('Go to Transaction Report')),
+          ],
+        ),
       ),
     );
   }

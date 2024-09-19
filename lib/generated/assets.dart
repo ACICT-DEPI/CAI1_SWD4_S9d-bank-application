@@ -14,7 +14,9 @@ class Assets {
       'assets/fonts/Cairo/Cairo-Regular.ttf';
   static const String cairoCairoSemiBold =
       'assets/fonts/Cairo/Cairo-SemiBold.ttf';
-  static const String imagesImg = 'assets/images/google_icon.png';
+  static const String imagesForgetPassword =
+      'assets/images/forget_password.png';
+  static const String imagesGoogleIcon = 'assets/images/google_icon.png';
   static const String imagesLogin = 'assets/images/login.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesOne = 'assets/images/one.png';
@@ -45,4 +47,41 @@ class Assets {
       'assets/fonts/PlayfairDisplay/PlayfairDisplay-SemiBold.ttf';
   static const String playfairDisplayPlayfairDisplaySemiBoldItalic =
       'assets/fonts/PlayfairDisplay/PlayfairDisplay-SemiBoldItalic.ttf';
+  static const String poppinsOFL = 'assets/fonts/Poppins/OFL.txt';
+  static const String poppinsPoppinsBlack =
+      'assets/fonts/Poppins/Poppins-Black.ttf';
+  static const String poppinsPoppinsBlackItalic =
+      'assets/fonts/Poppins/Poppins-BlackItalic.ttf';
+  static const String poppinsPoppinsBold =
+      'assets/fonts/Poppins/Poppins-Bold.ttf';
+  static const String poppinsPoppinsBoldItalic =
+      'assets/fonts/Poppins/Poppins-BoldItalic.ttf';
+  static const String poppinsPoppinsExtraBold =
+      'assets/fonts/Poppins/Poppins-ExtraBold.ttf';
+  static const String poppinsPoppinsExtraBoldItalic =
+      'assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf';
+  static const String poppinsPoppinsExtraLight =
+      'assets/fonts/Poppins/Poppins-ExtraLight.ttf';
+  static const String poppinsPoppinsExtraLightItalic =
+      'assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf';
+  static const String poppinsPoppinsItalic =
+      'assets/fonts/Poppins/Poppins-Italic.ttf';
+  static const String poppinsPoppinsLight =
+      'assets/fonts/Poppins/Poppins-Light.ttf';
+  static const String poppinsPoppinsLightItalic =
+      'assets/fonts/Poppins/Poppins-LightItalic.ttf';
+  static const String poppinsPoppinsMedium =
+      'assets/fonts/Poppins/Poppins-Medium.ttf';
+  static const String poppinsPoppinsMediumItalic =
+      'assets/fonts/Poppins/Poppins-MediumItalic.ttf';
+  static const String poppinsPoppinsRegular =
+      'assets/fonts/Poppins/Poppins-Regular.ttf';
+  static const String poppinsPoppinsSemiBold =
+      'assets/fonts/Poppins/Poppins-SemiBold.ttf';
+  static const String poppinsPoppinsSemiBoldItalic =
+      'assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf';
+  static const String poppinsPoppinsThin =
+      'assets/fonts/Poppins/Poppins-Thin.ttf';
+  static const String poppinsPoppinsThinItalic =
+      'assets/fonts/Poppins/Poppins-ThinItalic.ttf';
 }

@@ -12,25 +12,16 @@ class GoogleLoginButton extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Text above the circular button
-        const Text(
-          'You can also login with',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.grey,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        const SizedBox(height: 20),
-        // Circular button with Google icon
+        // Rectangular button with Google icon and text
         InkWell(
           onTap: onPressed,
-          borderRadius: BorderRadius.circular(50), // For ripple effect
+          borderRadius: BorderRadius.circular(8), // Rounded corners
           child: Container(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
               color: Colors.white,
+              border: Border.all(color: Colors.grey.shade300),
+              borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.3),
@@ -39,10 +30,23 @@ class GoogleLoginButton extends StatelessWidget {
                 ),
               ],
             ),
-            child: Image.asset(
-              AppImageassets.googleIcon, // Replace with your Google icon asset
-              height: 40,
-              width: 40,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  AppImageassets.googleIcon,
+                  height: 24,
+                  width: 24,
+                ),
+                const SizedBox(width: 12),
+                const Text(
+                  'Sign in with Google',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

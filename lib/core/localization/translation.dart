@@ -55,6 +55,9 @@ class MyTranslation extends Translations {
           '44': 'Forget Password',
           '45': 'Reset Password',
           '46': 'Success Reset password',
+          '47': 'Hello there, sign in to continue!',
+          '48': 'Welcome to us,',
+          '49': 'Hello there, create New account',
         },
         'ar': {
           '1': 'اختر لغتك',
@@ -105,6 +108,9 @@ class MyTranslation extends Translations {
           '44': 'نسيت كلمة المرور',
           '45': 'إعادة تعيين كلمة المرور',
           '46': 'نجاح إعادة تعيين كلمة المرور',
+          '47': 'مرحبًا، قم بتسجيل الدخول للمتابعة!',
+          '48': 'مرحبا بكم عندنا،',
+          '49': 'مرحبا، قم بإنشاء حساب جديد',
         },
       };
 }

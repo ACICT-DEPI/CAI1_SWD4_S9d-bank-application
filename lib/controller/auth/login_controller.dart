@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,7 @@ class LogInControllerImpl extends LogInController {
                 email: emailController.text, password: passwordController.text);
         myServices.sharedPreferences.setString('userid', credential.user!.uid);
         if (credential.user!.emailVerified) {
-          Get.offNamed(AppRoute.home);
+          Get.offNamed(AppRoute.homePage);
         } else {
           FirebaseAuth.instance.currentUser!.sendEmailVerification();
 
@@ -166,31 +167,48 @@ class LogInControllerImpl extends LogInController {
         );
         return;
       }
+      final email = emailController.text;
+      // final checkEmailAvailable =
+      //     await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
+      // print(checkEmailAvailable);
 
-      final List<String> signInMethods = await FirebaseAuth.instance
-          .fetchSignInMethodsForEmail(emailController.text);
-
-      if (signInMethods.isEmpty) {
+      final findEmail = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: email)
+          .get();
+      if (findEmail.docs.isEmpty) {
         showAwesomeDialog(
           Get.context!,
           title: 'Error',
-          desc: 'No user found for that email.',
+          desc: 'No account found with that email address.',
           onOk: () {
             Get.back();
           },
           dialogType: DialogType.error,
         );
-      } else {
-        await FirebaseAuth.instance
-            .sendPasswordResetEmail(email: emailController.text);
-        Get.offNamed(AppRoute.successResetPassword);
+        return;
       }
+
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: emailController.text);
+
+      Get.offNamed(AppRoute.successResetPassword);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
         showAwesomeDialog(
           Get.context!,
           title: 'Error',
           desc: 'Invalid email provided.',
+          onOk: () {
+            Get.back();
+          },
+          dialogType: DialogType.error,
+        );
+      } else if (e.code == 'user-not-found') {
+        showAwesomeDialog(
+          Get.context!,
+          title: 'Error',
+          desc: 'No account found with that email address.',
           onOk: () {
             Get.back();
           },
@@ -222,17 +240,92 @@ class LogInControllerImpl extends LogInController {
 
   @override
   Future signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser!.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) return; // User canceled the sign-in
 
-    final userCredential =
-        await FirebaseAuth.instance.signInWithCredential(credential);
-    myServices.sharedPreferences.setString('userid', userCredential.user!.uid);
-    Get.offNamed(AppRoute.home);
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+
+      // Save the user ID to shared preferences
+      myServices.sharedPreferences
+          .setString('userid', userCredential.user!.uid);
+
+      // Get user details
+      String displayName = userCredential.user!.displayName ?? "User";
+      String userId = userCredential.user!.uid;
+      String email = userCredential.user!.email ?? "unknown@unknown.com";
+
+      // Check if the user exists in Firestore (first-time login check)
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userId)
+          .get();
+
+      if (!userDoc.exists) {
+        // First-time user, generate a username based on their email and store them in Firestore
+        String username = _generateUsernameFromEmail(email);
+
+        // Check if the username already exists and ensure it's unique
+        String uniqueUsername = await _ensureUniqueUsername(username);
+        await FirebaseFirestore.instance.collection('users').doc(userId).set({
+          'uid': userId,
+          'email': email,
+          'username': uniqueUsername,
+          'phone': "",
+          'balance': 0,
+        });
+        // Show dialog with generated username
+        showAwesomeDialog(Get.context!,
+            title: uniqueUsername, desc: 'Here is your username', onOk: () {
+          Get.offAllNamed(AppRoute.homePage);
+        }, dialogType: DialogType.success);
+
+        // Add the user to the Firestore users' collection
+      } else {
+        // User already exists, no need to generate a username
+        Get.offAllNamed(AppRoute.homePage);
+      }
+
+      // Navigate to home page
+    } catch (e) {
+      print("Error during Google Sign In: $e");
+      // Handle the error appropriately
+    }
+  }
+
+// Function to generate a username from the user's email
+  String _generateUsernameFromEmail(String email) {
+    String username = email.split('@')[0]; // Take part before @ in email
+    username = username
+        .replaceAll(RegExp(r'[^a-zA-Z0-9]'), '')
+        .toLowerCase(); // Remove special characters, convert to lowercase
+    String randomNum =
+        (1000 + (1000 * (DateTime.now().millisecondsSinceEpoch % 1000)))
+            .toString();
+    return username + randomNum; // Example: johndoe1234
+  }
+
+// Ensure the generated username is unique by checking Firestore
+  Future<String> _ensureUniqueUsername(String username) async {
+    bool exists = await FirebaseFirestore.instance
+        .collection('users')
+        .where('username', isEqualTo: username)
+        .get()
+        .then((snapshot) => snapshot.docs.isNotEmpty);
+
+    if (exists) {
+      // If username exists, append random numbers or re-generate a new username
+      return _generateUsernameFromEmail(username);
+    }
+
+    return username;
   }
 }

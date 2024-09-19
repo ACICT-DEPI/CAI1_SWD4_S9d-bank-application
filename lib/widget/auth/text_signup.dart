@@ -14,29 +14,32 @@ class CustomTextSignUpOrSignin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          textOne,
-          style: TextStyle(
-            color: AppColor.grey,
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
-          ),
-        ),
-        TextButton(
-          onPressed: onPressed,
-          child: Text(
-            textTwo,
-            style: TextStyle(
-              color: AppColor.primaryColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
+    return Padding(
+      padding: const EdgeInsets.only(left: 85, right: 55.5, top: 5),
+      child: Row(
+        children: [
+          Text(
+            textOne,
+            style: const TextStyle(
+              color: AppColor.grey,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
             ),
           ),
-        ),
-      ],
+          TextButton(
+            onPressed: () {
+              onPressed();
+            },
+            child: Text(
+              textTwo,
+              style: const TextStyle(
+                  color: AppColor.primaryColor,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

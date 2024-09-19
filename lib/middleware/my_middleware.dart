@@ -24,7 +24,7 @@ class MyMiddleware extends GetMiddleware {
     if (myServices.sharedPreferences.getString('userid') != null) {
       // User is signed in, go to home
       print('your id is ${myServices.sharedPreferences.getString('userid')}');
-      return RouteSettings(name: AppRoute.home);
+      return RouteSettings(name: AppRoute.homePage);
     } else {
       // User is not signed in, go to login
       return RouteSettings(name: AppRoute.login);

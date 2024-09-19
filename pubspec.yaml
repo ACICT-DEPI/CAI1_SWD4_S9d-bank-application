@@ -71,6 +71,7 @@ dependencies:
   flutter_otp_text_field: ^1.2.0
   firebase_auth: ^4.16.0
   awesome_dialog: ^3.2.1
+  google_nav_bar: ^5.0.6
 
 
 dev_dependencies:
@@ -122,6 +123,11 @@ flutter:
       fonts:
         - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf
         - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf
+          weight: 700
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
           weight: 700
   #   - family: Schyler
   #     fonts:

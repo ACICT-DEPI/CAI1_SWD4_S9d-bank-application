@@ -6,10 +6,10 @@ class CustomTextBodyAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(title,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodyMedium),
+    return Text(
+      title,
+      style: const TextStyle(
+          color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
     );
   }
 }

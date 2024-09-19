@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vaulta/widget/auth/logo_auth.dart';
 
 import '../../../core/constant/color.dart';
 import '../../controller/auth/signup_controller.dart';
@@ -14,6 +13,7 @@ import '../../widget/auth/custom_button_auth.dart';
 import '../../widget/auth/custom_textFormAuth.dart';
 import '../../widget/auth/custom_text_body_auth.dart';
 import '../../widget/auth/custom_text_title_auth.dart';
+import '../../widget/auth/logo_auth.dart';
 import '../../widget/auth/text_signup.dart';
 
 class SignUp extends StatelessWidget {
@@ -21,118 +21,125 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     SignupControllerImpl controller = Get.put(SignupControllerImpl());
+
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            '19'.tr,
-            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                  color: AppColor.grey,
-                  fontWeight: FontWeight.bold,
-                ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(90),
+        child: AppBar(
+          backgroundColor: AppColor.primaryColor,
+          title: Padding(
+            padding: const EdgeInsets.only(top: 12, left: 12),
+            child: Text(
+              '19'.tr,
+              style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+            ),
           ),
-          elevation: 0,
-          centerTitle: true,
-          backgroundColor: AppColor.backgroundColor,
         ),
-        body: WillPopScope(
-          onWillPop: () => showAwesomeDialog(context,
-              title: 'Exit',
-              desc: 'Are you sure you want to go out.',
-              onOk: () {
-                exit(0);
-              },
-              dialogType: DialogType.warning,
-              onCancel: () {
-                Get.back();
-              }),
+      ),
+      body: WillPopScope(
+        onWillPop: () => showAwesomeDialog(
+          context,
+          title: 'Exit',
+          desc: 'Are you sure you want to go out?',
+          onOk: () {
+            exit(0);
+          },
+          dialogType: DialogType.warning,
+          onCancel: () {
+            Get.back();
+          },
+        ),
+        child: SingleChildScrollView(
           child: Container(
-            color: AppColor.backgroundColor,
-            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-            child: Form(
-              key: controller.formKey,
-              child: ListView(
-                children: [
-                  const SizedBox(height: 20),
-                  Card(
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+            color: AppColor.primaryColor,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+              child: Form(
+                key: controller.formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 24),
+                    CustomTextTitleAuth(title: '48'.tr),
+                    const SizedBox(height: 8),
+                    CustomTextBodyAuth(title: '49'.tr),
+                    const SizedBox(height: 24),
+                    Center(child: LogoAuth(imageAsset: AppImageassets.signup)),
+                    const SizedBox(height: 24),
+                    CustomTextformAuth(
+                      keyboardType: TextInputType.text,
+                      validator: (val) {
+                        return validInput(val!, 5, 100, 'username');
+                      },
+                      hintTxt: '20'.tr,
+                      labelTxt: '21'.tr,
+                      myController: controller.usernameController,
+                      isPassword: false,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          CustomTextTitleAuth(title: '5'.tr),
-                          LogoAuth(imageAsset: AppImageassets.signup),
-                          const SizedBox(height: 10),
-                          CustomTextBodyAuth(title: '6'.tr),
-                          const SizedBox(height: 30),
-                          CustomTextformAuth(
-                            keyboardType: TextInputType.text,
-                            validator: (val) {
-                              return validInput(val!, 6, 30, 'username');
-                            },
-                            hintTxt: '20'.tr,
-                            icon: Icons.person_outline,
-                            labelTxt: '21'.tr,
-                            myController: controller.usernameController,
-                          ),
-                          CustomTextformAuth(
-                            keyboardType: TextInputType.emailAddress,
-                            validator: (val) {
-                              return validInput(val!, 6, 100, 'email');
-                            },
-                            hintTxt: '22'.tr,
-                            icon: Icons.email_outlined,
-                            labelTxt: '23'.tr,
-                            myController: controller.emailController,
-                          ),
-                          CustomTextformAuth(
-                            keyboardType:
-                                TextInputType.numberWithOptions(decimal: true),
-                            validator: (val) {
-                              return validInput(val!, 10, 11, 'phone');
-                            },
-                            hintTxt: '26'.tr,
-                            icon: Icons.phone_android_outlined,
-                            labelTxt: '27'.tr,
-                            myController: controller.PhoneController,
-                          ),
-                          CustomTextformAuth(
-                            keyboardType: TextInputType.text,
-                            validator: (val) {
-                              return validInput(val!, 8, 30, 'password');
-                            },
-                            hintTxt: '24'.tr,
-                            icon: Icons.lock_outline,
-                            labelTxt: '25'.tr,
-                            myController: controller.passwordController,
-                          ),
-                          const SizedBox(height: 10),
-                        ],
-                      ),
+                    CustomTextformAuth(
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (val) {
+                        return validInput(val!, 5, 100, 'email');
+                      },
+                      hintTxt: '22'.tr,
+                      labelTxt: '23'.tr,
+                      myController: controller.emailController,
+                      isPassword: false,
                     ),
-                  ),
-                  const SizedBox(height: 30),
-                  CustomButtonAuth(
-                    title: '19'.tr,
-                    onPressed: () {
-                      controller.signUp();
-                    },
-                  ),
-                  const SizedBox(height: 30),
-                  CustomTextSignUpOrSignin(
-                    textOne: '28'.tr,
-                    textTwo: '4'.tr,
-                    onPressed: () {
-                      controller.goToSignIn();
-                    },
-                  ),
-                ],
+                    CustomTextformAuth(
+                      keyboardType:
+                          TextInputType.numberWithOptions(decimal: true),
+                      validator: (val) {
+                        return validInput(val!, 10, 11, 'phone');
+                      },
+                      hintTxt: '26'.tr,
+                      labelTxt: '27'.tr,
+                      myController: controller.PhoneController,
+                      isPassword: false,
+                    ),
+                    CustomTextformAuth(
+                      keyboardType: TextInputType.text,
+                      validator: (val) {
+                        return validInput(val!, 8, 30, 'password');
+                      },
+                      hintTxt: '24'.tr,
+                      labelTxt: '25'.tr,
+                      myController: controller.passwordController,
+                    ),
+                    const SizedBox(height: 24),
+                    CustomButtonAuth(
+                      title: '19'.tr,
+                      onPressed: () {
+                        controller.signUp();
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    CustomTextSignUpOrSignin(
+                      textOne: '28'.tr,
+                      textTwo: '4'.tr,
+                      onPressed: () {
+                        controller.goToSignIn();
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

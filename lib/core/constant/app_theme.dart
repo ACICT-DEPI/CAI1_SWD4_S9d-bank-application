@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'color.dart';
 
 ThemeData englishTheme = ThemeData(
-  fontFamily: 'PlayfairDisplay',
+  fontFamily: 'Poppins',
   textTheme: const TextTheme(
     headlineLarge: TextStyle(
       fontSize: 30.0,

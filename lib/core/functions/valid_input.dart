@@ -25,4 +25,10 @@ validInput(String val, int min, int max, String type) {
   if (val.length > max) {
     return 'Maximum $max characters allowed';
   }
+  if (type == 'amount') {
+    if (!GetUtils.isNumericOnly(val)) {
+      return 'Invalid amount';
+    }
+  }
+  if (type == 'content') {}
 }

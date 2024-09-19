@@ -29,20 +29,20 @@ class SignupControllerImpl extends SignupController {
       showLoading(Get.context!);
 
       try {
-        final usernameCheck = await FirebaseFirestore.instance
-            .collection('users')
-            .where('username', isEqualTo: usernameController.text)
-            .get();
-
-        if (usernameCheck.docs.isNotEmpty) {
-          hideLoading(Get.context!);
-          showAwesomeDialog(Get.context!,
-              title: 'Error',
-              desc: 'The username is already in use.', onOk: () {
-            Get.back();
-          }, dialogType: DialogType.error);
-          return;
-        }
+        // final usernameCheck = await FirebaseFirestore.instance
+        //     .collection('users')
+        //     .where('username', isEqualTo: usernameController.text)
+        //     .get();
+        //
+        // if (usernameCheck.docs.isNotEmpty) {
+        //   hideLoading(Get.context!);
+        //   showAwesomeDialog(Get.context!,
+        //       title: 'Error',
+        //       desc: 'The username is already in use.', onOk: () {
+        //     Get.back();
+        //   }, dialogType: DialogType.error);
+        //   return;
+        // }
 
         final credential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
@@ -55,6 +55,7 @@ class SignupControllerImpl extends SignupController {
           'email': emailController.text,
           'phone': PhoneController.text,
           'uid': credential.user!.uid,
+          'balance': 0,
         });
         await credential.user!.sendEmailVerification();
         hideLoading(Get.context!);

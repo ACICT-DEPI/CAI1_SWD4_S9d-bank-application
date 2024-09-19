@@ -6,9 +6,15 @@ class LogoAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      imageAsset,
-      height: 170,
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 81,
+        right: 81,
+        top: 32,
+      ),
+      child: Image(
+        image: AssetImage(imageAsset),
+      ),
     );
   }
 }
