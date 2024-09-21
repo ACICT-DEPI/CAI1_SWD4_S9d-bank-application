@@ -12,7 +12,11 @@ import 'package:vaulta/screen/home.dart';
 import 'package:vaulta/screen/home_page.dart';
 import 'package:vaulta/screen/language.dart';
 import 'package:vaulta/screen/onboarding.dart';
-import 'package:vaulta/screen/settings.dart';
+import 'package:vaulta/screen/settings/app_info.dart';
+import 'package:vaulta/screen/settings/edit_profile.dart';
+import 'package:vaulta/screen/settings/language_profile.dart';
+import 'package:vaulta/screen/settings/profile_infromation.dart';
+import 'package:vaulta/screen/settings/settings.dart';
 import 'package:vaulta/screen/transaction_report.dart';
 import 'package:vaulta/screen/transfer/confirm_transaction.dart';
 import 'package:vaulta/screen/transfer/success_transfer.dart';
@@ -50,6 +54,15 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.homePage, page: () => const HomePage()),
   GetPage(name: AppRoute.exchangeScreen, page: () => const ExchangeScreen()),
   GetPage(name: AppRoute.settingsScreen, page: () => const SettingsScreen()),
+  GetPage(
+      name: AppRoute.profileInfromationScreen,
+      page: () => const ProfileInfromationScrenn()),
+  GetPage(
+      name: AppRoute.editProfileScreen, page: () => const EditProfileScreen()),
+  GetPage(
+      name: AppRoute.languageProfileScreen,
+      page: () => const LanguageProfileScreen()),
+  GetPage(name: AppRoute.appInfoScreen, page: () => const AppInfoScreen()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routes = {

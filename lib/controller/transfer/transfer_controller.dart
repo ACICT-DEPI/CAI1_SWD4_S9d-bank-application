@@ -185,7 +185,6 @@ class TransferControllerImpl extends TransferController {
   @override
   void fetchRecentTransactions() async {
     try {
-      showLoading(Get.context!);
       final sharedPreferences = Get.find<SharedPreferences>();
       final userId = sharedPreferences.getString('userid');
       if (userId == null) {
@@ -199,10 +198,8 @@ class TransferControllerImpl extends TransferController {
           .get();
 
       recentTransactions.value = resentTransactionsGet.docs;
-      hideLoading(Get.context!);
       update();
     } catch (e) {
-      hideLoading(Get.context!);
       print('Error fetching recent transactions: $e');
       Get.snackbar("Error", "Failed to load recent transactions");
     }

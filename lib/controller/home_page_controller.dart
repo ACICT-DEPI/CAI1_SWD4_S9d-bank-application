@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/screen/exchange.dart';
 import 'package:vaulta/screen/home.dart';
-import 'package:vaulta/screen/settings.dart';
+
+import '../screen/settings/settings.dart';
 
 abstract class HomePageController extends GetxController {
   void changeTab(int index);

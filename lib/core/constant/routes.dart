@@ -18,4 +18,8 @@ class AppRoute {
   static const String homePage = '/homepage';
   static const String exchangeScreen = '/exchange';
   static const String settingsScreen = '/settings';
+  static const String profileInfromationScreen = '/profileInformation';
+  static const String editProfileScreen = '/editProfile';
+  static const String languageProfileScreen = '/languageProfile';
+  static const String appInfoScreen = '/appInfo';
 }
