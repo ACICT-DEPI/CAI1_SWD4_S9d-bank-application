@@ -74,13 +74,15 @@ class ProfileInfromationScrenn extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Text(
-                        "Email Address",
+                        "Email",
                         style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7)),
                       )
                   ),
                   Text(
                       "email@gmail.com",
-                      style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7), fontWeight: FontWeight.bold)
+                      style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7), fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   )
                 ],
               ),
