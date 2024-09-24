@@ -160,7 +160,7 @@ class SettingsScreen extends StatelessWidget {
             Column(
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.black87,
+                  backgroundColor: Colors.grey,
                   child: Text(
                     style: TextStyle(fontSize: 40, color: Colors.white),
                     "A",
