@@ -125,6 +125,30 @@ class SettingsScreen extends StatelessWidget {
                             ],
                           )),
                     ),
+                    Container(
+                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 7),
+                        width: double.infinity,
+                        alignment: Alignment.centerLeft,
+                        decoration: BoxDecoration(
+                          border: Border(
+                              bottom: BorderSide(color: Colors.grey.shade300)
+                          )
+                      ),
+                      child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'Customer Care',
+                                style: TextStyle(fontSize: 18, color: Colors.black),
+                              ),
+                              SizedBox(width: 140,),
+                              Text(
+                                '123456',
+                                style: TextStyle(fontSize: 18, color: Colors.grey.shade500),
+                              ),
+                            ],
+                          )
+                    )
                   ],
                 ),
               ),
