@@ -66,11 +66,12 @@ class SettingsScreen extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
-                                  'Profile Information',
-                                style: TextStyle(fontSize: 18, color: Colors.black),
+                              Expanded(
+                                child: Text(
+                                    'Profile Information',
+                                  style: TextStyle(fontSize: 18, color: Colors.black),
+                                ),
                               ),
-                              SizedBox(width: 150,),
                               Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
                             ],
                           )),
@@ -91,11 +92,12 @@ class SettingsScreen extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
-                                'Language',
-                                style: TextStyle(fontSize: 18, color: Colors.black),
+                              Expanded(
+                                child: Text(
+                                  'Language',
+                                  style: TextStyle(fontSize: 18, color: Colors.black),
+                                ),
                               ),
-                              SizedBox(width: 225,),
                               Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
                             ],
                           )),
@@ -116,11 +118,12 @@ class SettingsScreen extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
-                                'App Info',
-                                style: TextStyle(fontSize: 18, color: Colors.black),
+                              Expanded(
+                                child: Text(
+                                  'App Information',
+                                  style: TextStyle(fontSize: 18, color: Colors.black),
+                                ),
                               ),
-                              SizedBox(width: 240,),
                               Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
                             ],
                           )),
@@ -137,11 +140,12 @@ class SettingsScreen extends StatelessWidget {
                       child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
-                                'Customer Care',
-                                style: TextStyle(fontSize: 18, color: Colors.black),
+                              Expanded(
+                                child: Text(
+                                  'Customer Care',
+                                  style: TextStyle(fontSize: 18, color: Colors.black),
+                                ),
                               ),
-                              SizedBox(width: 140,),
                               Text(
                                 '123456',
                                 style: TextStyle(fontSize: 18, color: Colors.grey.shade500),
