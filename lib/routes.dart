@@ -60,7 +60,7 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoute.profileInfromationScreen,
       page: () => const ProfileInfromationScrenn()),
   GetPage(
-      name: AppRoute.editProfileScreen, page: () => const EditProfileScreen()),
+      name: AppRoute.editProfileScreen, page: () => EditProfileScreen()),
   GetPage(
       name: AppRoute.languageProfileScreen,
       page: () => const LanguageProfileScreen()),
