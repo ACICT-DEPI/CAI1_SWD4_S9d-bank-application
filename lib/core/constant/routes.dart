@@ -22,4 +22,6 @@ class AppRoute {
   static const String editProfileScreen = '/editProfile';
   static const String languageProfileScreen = '/languageProfile';
   static const String appInfoScreen = '/appInfo';
+  static const String withdrawScreen = '/withdraw';
+  static const String successWithdrawScreen = '/successWithdraw';
 }

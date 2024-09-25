@@ -21,6 +21,8 @@ import 'package:vaulta/screen/transaction_report.dart';
 import 'package:vaulta/screen/transfer/confirm_transaction.dart';
 import 'package:vaulta/screen/transfer/success_transfer.dart';
 import 'package:vaulta/screen/transfer/transfer.dart';
+import 'package:vaulta/screen/withdraw/success_withdraw.dart';
+import 'package:vaulta/screen/withdraw/withdraw.dart';
 
 import 'core/constant/routes.dart';
 import 'middleware/my_middleware.dart';
@@ -63,6 +65,10 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoute.languageProfileScreen,
       page: () => const LanguageProfileScreen()),
   GetPage(name: AppRoute.appInfoScreen, page: () => const AppInfoScreen()),
+  GetPage(name: AppRoute.withdrawScreen, page: () => const WithdrawScreen()),
+  GetPage(
+      name: AppRoute.successWithdrawScreen,
+      page: () => const SuccessWithdraw()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routes = {

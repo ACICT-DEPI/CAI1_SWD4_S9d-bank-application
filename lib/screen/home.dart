@@ -36,6 +36,11 @@ class HomeScreen extends StatelessWidget {
                   Get.offAllNamed(AppRoute.transactionReport);
                 },
                 child: Text('Go to Transaction Report')),
+            ElevatedButton(
+                onPressed: () {
+                  Get.offAllNamed(AppRoute.withdrawScreen);
+                },
+                child: Text('Go to deposit')),
           ],
         ),
       ),

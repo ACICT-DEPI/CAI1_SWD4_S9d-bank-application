@@ -14,15 +14,23 @@ class Assets {
       'assets/fonts/Cairo/Cairo-Regular.ttf';
   static const String cairoCairoSemiBold =
       'assets/fonts/Cairo/Cairo-SemiBold.ttf';
+  static const String imagesAccount = 'assets/images/account.png';
   static const String imagesForgetPassword =
       'assets/images/forget_password.png';
   static const String imagesGoogleIcon = 'assets/images/google_icon.png';
   static const String imagesLogin = 'assets/images/login.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesOne = 'assets/images/one.png';
+  static const String imagesReport = 'assets/images/report.png';
   static const String imagesSignup = 'assets/images/signup.png';
+  static const String imagesSuccessTransfer =
+      'assets/images/success_transfer.png';
   static const String imagesThree = 'assets/images/three.png';
+  static const String imagesTransfer = 'assets/images/transfer.png';
   static const String imagesTwo = 'assets/images/two.png';
+  static const String imagesVisa = 'assets/images/visa.png';
+  static const String imagesWithdraw = 'assets/images/withdraw.png';
+  static const String imagesWithdrawImg = 'assets/images/withdraw_img.png';
   static const String playfairDisplayPlayfairDisplayBlack =
       'assets/fonts/PlayfairDisplay/PlayfairDisplay-Black.ttf';
   static const String playfairDisplayPlayfairDisplayBlackItalic =
