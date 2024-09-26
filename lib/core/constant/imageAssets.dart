@@ -14,5 +14,8 @@ class AppImageassets {
   static const String withdrawImage = '$rootImages/withdraw.png';
   static const String reportImage = '$rootImages/report.png';
   static const String accountImage = '$rootImages/account.png';
+  static const String withdraw = '$rootImages/withdraw_img.png';
+  static const String exchange = '$rootImages/exchange.png';
+  static const String arrow = '$rootImages/Arrow.png';
 }
 // assets/images/onboardingfour.PNG

@@ -239,7 +239,7 @@ class LogInControllerImpl extends LogInController {
   }
 
   @override
-  Future signInWithGoogle() async {
+  signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       if (googleUser == null) return; // User canceled the sign-in
