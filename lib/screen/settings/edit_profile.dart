@@ -5,13 +5,17 @@ import 'package:vaulta/core/constant/color.dart';
 
 class EditProfileScreen extends StatelessWidget {
 
-  final nameController = TextEditingController();
-  final phoneController = TextEditingController();
-  final emailController = TextEditingController();
+  late var nameController = TextEditingController();
+  late var phoneController = TextEditingController();
+  late var emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     EditProfileControllerImpl controller = Get.put(EditProfileControllerImpl());
+    nameController.text = controller.userProfile.username!;
+    phoneController.text = controller.userProfile.phoneNumber!;
+    emailController.text = controller.userProfile.email!;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
@@ -197,4 +201,5 @@ class EditProfileScreen extends StatelessWidget {
       ),
     );
   }
+
 }
