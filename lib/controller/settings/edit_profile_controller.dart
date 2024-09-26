@@ -18,6 +18,7 @@ class EditProfileControllerImpl extends EditProfileController {
 
   @override
   void onInit() {
+    print("username: ${userProfile.username}");
     super.onInit();
   }
 

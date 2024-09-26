@@ -52,7 +52,11 @@ class LanguageProfileScreen extends GetView<LocaleController> {
                             ],
                           ),
                         ),
-                        Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
+                        controller.language == const Locale('ar')
+                            ? const Icon(Icons.check,
+                            size: 20, color: Colors.black)
+                            : const SizedBox
+                            .shrink(), // Empty widget if not selected
                       ],
                     )),
               ),
@@ -85,7 +89,11 @@ class LanguageProfileScreen extends GetView<LocaleController> {
                             ],
                           ),
                         ),
-                        Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
+                        controller.language == const Locale('en')
+                            ? const Icon(Icons.check,
+                            size: 20, color: Colors.black)
+                            : const SizedBox
+                            .shrink(), // Empty widget if not selected
                       ],
                     )),
               ),

@@ -15,42 +15,48 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
   Rx<String> profilePicture = ''.obs;
 
   @override
-  void onInit() {
-    retrieveUserData();
+  void onInit(){
+    // retrieveUserData();
     saveUserData();
     super.onInit();
   }
 
   @override
-  goToEditProfile() {
+  goToEditProfile() async {
+    // await saveUserData();
     Get.toNamed(AppRoute.editProfileScreen);
   }
 
   Future<void> retrieveUserData() async {
-    User? user = FirebaseAuth.instance.currentUser;
+    try{
+      User? user = FirebaseAuth.instance.currentUser;
 
-    if(user != null){
-      String userId = user.uid;
+      if(user != null){
+        String userId = user.uid;
 
-      DocumentSnapshot userData = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(userId)
-          .get();
+        DocumentSnapshot userData = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userId)
+            .get();
 
-      if(userData.exists){
-        this.username.value = userData['username'];
-        this.email.value = userData['email'];
-        this.phone.value = userData['phone'];
-        this.profilePicture.value = userData.get('profile_picture') ?? '';
+        if(userData.exists){
+          this.username.value = userData['username'];
+          this.email.value = userData['email'];
+          this.phone.value = userData['phone'];
+          this.profilePicture.value = userData.get('profile_picture') ?? '';
 
+        }
+        else{
+          print("no userdata in firestore");
+        }
       }
       else{
-        print("no userdata in firestore");
+        print("no user is signed in");
       }
+    }on FirebaseAuthException catch(e){
+      print("error: ${e.code}");
     }
-    else{
-      print("no user is signed in");
-    }
+
 
   }
 
@@ -62,6 +68,7 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
         email: email.value,
         phoneNumber: phone.value,
         profilePictureUrl: profilePicture.value);
+    return;
   }
 
 }
