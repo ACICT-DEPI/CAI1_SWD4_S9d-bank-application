@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/controller/settings/language_page_controller.dart';
+import 'package:vaulta/core/localization/change_locale.dart';
 
-class LanguageProfileScreen extends StatelessWidget {
+class LanguageProfileScreen extends GetView<LocaleController> {
   const LanguageProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LanguagePageControllerImpl controller =
+    LanguagePageControllerImpl langController =
         Get.put(LanguagePageControllerImpl());
     return Scaffold(
       appBar: AppBar(
@@ -15,7 +16,7 @@ class LanguageProfileScreen extends StatelessWidget {
             onPressed: (){Navigator.pop(context);},
             icon: Icon(Icons.arrow_back_ios_new_rounded)
         ),
-        title: Text('Language', style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text('50'.tr, style: TextStyle(fontWeight: FontWeight.bold),),
         elevation: 0,
       ),
       body: Container(
@@ -34,6 +35,7 @@ class LanguageProfileScreen extends StatelessWidget {
                 child: TextButton(
                     onPressed: () {
                       //edit app's language
+                      controller.changeLang('ar');
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -44,7 +46,7 @@ class LanguageProfileScreen extends StatelessWidget {
                               Image.asset('assets/images/eg.png'),
                               SizedBox(width: 25,),
                               Text(
-                                'Arabic',
+                                '3'.tr,
                                 style: TextStyle(fontSize: 18, color: Colors.black),
                               ),
                             ],
@@ -66,6 +68,7 @@ class LanguageProfileScreen extends StatelessWidget {
                 child: TextButton(
                     onPressed: () {
                       //edit app's language
+                      controller.changeLang('en');
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -76,7 +79,7 @@ class LanguageProfileScreen extends StatelessWidget {
                               Image.asset('assets/images/us.png'),
                               SizedBox(width: 25,),
                               Text(
-                                'English',
+                                '2'.tr,
                                 style: TextStyle(fontSize: 18, color: Colors.black),
                               ),
                             ],

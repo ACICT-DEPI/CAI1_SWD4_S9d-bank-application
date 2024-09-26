@@ -23,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
             )
         ),
         title: Text(
-          'Settings',
+          '55'.tr,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white
@@ -70,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                    'Profile Information',
+                                    '56'.tr,
                                   style: TextStyle(fontSize: 18, color: Colors.black),
                                 ),
                               ),
@@ -96,7 +96,7 @@ class SettingsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'Language',
+                                  '50'.tr,
                                   style: TextStyle(fontSize: 18, color: Colors.black),
                                 ),
                               ),
@@ -122,7 +122,7 @@ class SettingsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'App Information',
+                                  '51'.tr,
                                   style: TextStyle(fontSize: 18, color: Colors.black),
                                 ),
                               ),
@@ -144,7 +144,7 @@ class SettingsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'Customer Care',
+                                  '57'.tr,
                                   style: TextStyle(fontSize: 18, color: Colors.black),
                                 ),
                               ),

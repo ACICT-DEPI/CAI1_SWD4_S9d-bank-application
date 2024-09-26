@@ -20,7 +20,7 @@ class EditProfileScreen extends StatelessWidget {
             icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white,)
         ),
         title: Text(
-          'Edit Profile',
+          '58'.tr,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,),
         ),
         elevation: 0,
@@ -64,7 +64,7 @@ class EditProfileScreen extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Text(
-                      "Name",
+                      "21".tr,
                       style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7),),
                       )
                     ),
@@ -102,7 +102,7 @@ class EditProfileScreen extends StatelessWidget {
                     Expanded(
                         flex: 2,
                         child: Text(
-                          "Phone",
+                          "27".tr,
                           style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7),),
                         )
                     ),
@@ -141,7 +141,7 @@ class EditProfileScreen extends StatelessWidget {
                     Expanded(
                         flex: 2,
                         child: Text(
-                          "Email",
+                          "23".tr,
                           style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7),),
                         )
                     ),
@@ -187,7 +187,7 @@ class EditProfileScreen extends StatelessWidget {
                         //save logic
                         controller.gotToProfileInformation();
                       },
-                      child: Text("Save update", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                      child: Text("59".tr, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
                   ),
                 ),
               )

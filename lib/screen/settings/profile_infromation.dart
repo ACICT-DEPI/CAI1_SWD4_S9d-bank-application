@@ -17,7 +17,7 @@ class ProfileInfromationScrenn extends StatelessWidget {
             onPressed: (){Navigator.pop(context);},
             icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white,)
         ),
-        title: Text('Profile Information', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+        title: Text('56'.tr, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
         elevation: 0,
       ),
       body: Container(
@@ -45,7 +45,7 @@ class ProfileInfromationScrenn extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Name",
+                  "21".tr,
                   style: TextStyle(fontSize: 20, color: AppColor.primaryColor, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -57,7 +57,7 @@ class ProfileInfromationScrenn extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Text(
-                    "Phone",
+                    "27".tr,
                     style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7)),
                     )
                   ),
@@ -74,7 +74,7 @@ class ProfileInfromationScrenn extends StatelessWidget {
                 children: [
                   Expanded(
                       child: Text(
-                        "Email",
+                        "23".tr,
                         style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7)),
                       )
                   ),
@@ -99,7 +99,7 @@ class ProfileInfromationScrenn extends StatelessWidget {
                   controller.goToEditProfile();
                 },
                     child: Text(
-                      "Edit Profile",
+                      "58".tr,
                     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
               ),
             )
