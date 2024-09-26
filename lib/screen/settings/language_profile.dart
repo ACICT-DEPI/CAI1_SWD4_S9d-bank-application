@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vaulta/controller/settings/language_page_controller.dart';
+import 'package:vaulta/core/localization/change_locale.dart';
 
-class LanguageProfileScreen extends StatelessWidget {
+class LanguageProfileScreen extends GetView<LocaleController> {
   const LanguageProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LanguagePageControllerImpl controller =
-        Get.put(LanguagePageControllerImpl());
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: (){Navigator.pop(context);},
-            icon: Icon(Icons.arrow_back_ios_new_rounded)
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+        title: Text(
+          '50'.tr,
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        title: Text('Language', style: TextStyle(fontWeight: FontWeight.bold),),
         elevation: 0,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 24),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 24),
           child: Column(
             children: [
               Container(
@@ -28,12 +30,11 @@ class LanguageProfileScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 decoration: BoxDecoration(
                     border: Border(
-                        bottom: BorderSide(color: Colors.grey.shade300)
-                    )
-                ),
+                        bottom: BorderSide(color: Colors.grey.shade300))),
                 child: TextButton(
                     onPressed: () {
                       //edit app's language
+                      controller.changeLang('ar');
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -42,15 +43,22 @@ class LanguageProfileScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Image.asset('assets/images/eg.png'),
-                              SizedBox(width: 25,),
+                              SizedBox(
+                                width: 25,
+                              ),
                               Text(
-                                'Arabic',
-                                style: TextStyle(fontSize: 18, color: Colors.black),
+                                '3'.tr,
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
                               ),
                             ],
                           ),
                         ),
-                        Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
+                        controller.language == const Locale('ar')
+                            ? const Icon(Icons.check,
+                                size: 20, color: Colors.black)
+                            : const SizedBox
+                                .shrink(), // Empty widget if not selected
                       ],
                     )),
               ),
@@ -60,12 +68,11 @@ class LanguageProfileScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 decoration: BoxDecoration(
                     border: Border(
-                        bottom: BorderSide(color: Colors.grey.shade300)
-                    )
-                ),
+                        bottom: BorderSide(color: Colors.grey.shade300))),
                 child: TextButton(
                     onPressed: () {
                       //edit app's language
+                      controller.changeLang('en');
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -74,21 +81,27 @@ class LanguageProfileScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Image.asset('assets/images/us.png'),
-                              SizedBox(width: 25,),
+                              SizedBox(
+                                width: 25,
+                              ),
                               Text(
-                                'English',
-                                style: TextStyle(fontSize: 18, color: Colors.black),
+                                '2'.tr,
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black),
                               ),
                             ],
                           ),
                         ),
-                        Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
+                        controller.language == const Locale('en')
+                            ? const Icon(Icons.check,
+                                size: 20, color: Colors.black)
+                            : const SizedBox
+                                .shrink(), // Empty widget if not selected
                       ],
                     )),
               ),
             ],
-          )
-      ),
+          )),
     );
   }
 }

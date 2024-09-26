@@ -16,7 +16,7 @@ class AppInfoScreen extends StatelessWidget {
             onPressed: (){Navigator.pop(context);},
             icon: Icon(Icons.arrow_back_ios_new_rounded)
         ),
-        title: Text('App Information', style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text('51'.tr, style: TextStyle(fontWeight: FontWeight.bold),),
         elevation: 0,
       ),
       body: Container(
@@ -43,12 +43,12 @@ class AppInfoScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          'Date of manufacture',
+                          '52'.tr,
                           style: TextStyle(fontSize: 18, color: Colors.black),
                         ),
                       ),
                       Text(
-                        'Sept 2024',
+                        '54'.tr,
                         style: TextStyle(fontSize: 17, color: AppColor.primaryColor, fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -68,7 +68,7 @@ class AppInfoScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Version',
+                        '53'.tr,
                         style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
@@ -93,7 +93,7 @@ class AppInfoScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        'Language',
+                        '50'.tr,
                         style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
