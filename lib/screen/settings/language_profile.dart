@@ -56,9 +56,9 @@ class LanguageProfileScreen extends GetView<LocaleController> {
                         ),
                         controller.language == const Locale('ar')
                             ? const Icon(Icons.check,
-                                size: 20, color: Colors.black)
+                            size: 20, color: Colors.black)
                             : const SizedBox
-                                .shrink(), // Empty widget if not selected
+                            .shrink(), // Empty widget if not selected
                       ],
                     )),
               ),
@@ -94,9 +94,9 @@ class LanguageProfileScreen extends GetView<LocaleController> {
                         ),
                         controller.language == const Locale('en')
                             ? const Icon(Icons.check,
-                                size: 20, color: Colors.black)
+                            size: 20, color: Colors.black)
                             : const SizedBox
-                                .shrink(), // Empty widget if not selected
+                            .shrink(), // Empty widget if not selected
                       ],
                     )),
               ),

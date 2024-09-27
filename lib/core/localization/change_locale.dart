@@ -14,7 +14,6 @@ class LocaleController extends GetxController {
     myServises.sharedPreferences.setString('lang', langCode);
     Get.changeTheme(appTheme);
     Get.updateLocale(locale);
-
     // Update the language property to reflect the change
     language = locale;
     update(); // Notify GetX to rebuild widgets
