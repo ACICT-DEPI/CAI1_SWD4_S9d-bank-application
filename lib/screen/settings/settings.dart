@@ -162,11 +162,16 @@ class SettingsScreen extends StatelessWidget {
             Obx((){
               return Column(
                 children: [
+                  controller.profilePicture.value.isNotEmpty?
                   CircleAvatar(
-                    backgroundColor: Colors.grey,
+                    radius: 50,
+                    backgroundImage: NetworkImage(controller.profilePicture.value),
+                  ):
+                  CircleAvatar(
+                    // backgroundColor: Colors.grey,
                     child: Text(
-                      style: TextStyle(fontSize: 40, color: Colors.white),
-                      "A",
+                      style: TextStyle(fontSize: 40, color: AppColor.primaryColor),
+                      controller.username.value.substring(0, 1),
                     ),
                     radius: 50,
                   ),

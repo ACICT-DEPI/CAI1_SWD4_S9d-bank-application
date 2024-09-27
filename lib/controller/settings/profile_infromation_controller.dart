@@ -17,13 +17,13 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
 
 
   @override
-  void onReady() {
-    username.value = userProfile.username!;
-    email.value = userProfile.email!;
-    phone.value = userProfile.phoneNumber!;
-    profilePicture.value = userProfile.profilePictureUrl ?? "";
-    super.onReady();
-  }
+  // void onReady() {
+  //   username.value = userProfile.username!;
+  //   email.value = userProfile.email!;
+  //   phone.value = userProfile.phoneNumber!;
+  //   profilePicture.value = userProfile.profilePictureUrl ?? "";
+  //   super.onReady();
+  // }
   @override
   void onInit(){
     // print("username is null: ${userProfile.username}");
@@ -34,9 +34,11 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
     // phone.value = userProfile.phoneNumber!;
     profilePicture.value = userProfile.profilePictureUrl ?? "";
     retrieveUserData();
-    everAll([email, phone], (values){
+    everAll([email, phone, profilePicture], (values){
+      print("url: ${profilePicture.value}");
       userProfile.email = email.value;
       userProfile.phoneNumber = phone.value;
+      userProfile.profilePictureUrl = profilePicture.value;
     });
     super.onInit();
   }
@@ -61,6 +63,7 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
         if(userData.exists){
           this.email.value = userData['email'];
           this.phone.value = userData['phone'];
+          this.profilePicture.value = userData['profile_picture'];
 
         }
         else{

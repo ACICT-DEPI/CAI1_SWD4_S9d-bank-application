@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/controller/settings/edit_profile_controller.dart';
@@ -13,6 +15,7 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
 
+
   late var nameController = TextEditingController();
 
   late var phoneController = TextEditingController();
@@ -20,10 +23,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   late var emailController = TextEditingController();
 
 
+  Uint8List? _imagePicked;
+
+  void selectImage(EditProfileControllerImpl controller) async{
+    Uint8List image = await controller.pickImage(ImageSource.gallery);
+    setState(() {
+      _imagePicked = image;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     EditProfileControllerImpl controller = Get.put(EditProfileControllerImpl());
+
+
 
 
     // nameController.text = controller.userProfile.username!;
@@ -55,13 +70,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 TextButton(
                   onPressed: (){
                     //pick image
-                    controller.handleImageUploadAndSave();
+                    selectImage(controller);
+                    // controller.handleImageUploadAndSave();
                   },
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [
+                      _imagePicked != null ?
                       CircleAvatar(
                         radius: 60,
+                        backgroundImage: MemoryImage(_imagePicked!),
+                      ) : controller.userProfile.value.profilePictureUrl == null ?
+                      CircleAvatar(
+                        radius: 60,
+                        child: Text(
+                            controller.userProfile.value.username!.substring(0, 1),
+                          style: TextStyle(fontSize: 50, color: AppColor.primaryColor),
+                        ),
+                      ) :
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage: NetworkImage(controller.userProfile.value.profilePictureUrl!),
                       ),
                       CircleAvatar(
                         radius: 15,
@@ -209,7 +238,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: TextButton(
                         onPressed: (){
                           //save logic
-                          controller.gotToProfileInformation();
+                          controller.saveData(image: _imagePicked,
+                              newEmail: emailController.text,
+                              newUsername: nameController.text,
+                              newPhone: phoneController.text);
                         },
                         child: Text("59".tr, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
                     ),

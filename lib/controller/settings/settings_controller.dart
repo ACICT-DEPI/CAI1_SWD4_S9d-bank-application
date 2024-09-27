@@ -34,11 +34,12 @@ class SettingsControllerImpl extends SettingsController {
   @override
   void onInit() {
     retrieveUserData();
-    ever(username, (values){
+    everAll([username, profilePicture], (values){
       print("updated username!!!");
       // print("phone ${phone.value}");
       // print("email ${email.value}");
       userProfile.username = username.value;
+      userProfile.profilePictureUrl = profilePicture.value;
     });
     // saveUserData();
     super.onInit();
