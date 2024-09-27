@@ -57,9 +57,9 @@ class SettingsScreen extends StatelessWidget {
                       width: double.infinity,
                       alignment: Alignment.centerLeft,
                       decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: Colors.grey.shade300)
-                        )
+                          border: Border(
+                              bottom: BorderSide(color: Colors.grey.shade300)
+                          )
                       ),
                       child: TextButton(
                           onPressed: () {
@@ -70,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                    '56'.tr,
+                                  '56'.tr,
                                   style: TextStyle(fontSize: 18, color: Colors.black),
                                 ),
                               ),
@@ -135,54 +135,56 @@ class SettingsScreen extends StatelessWidget {
                         width: double.infinity,
                         alignment: Alignment.centerLeft,
                         decoration: BoxDecoration(
-                          border: Border(
-                              bottom: BorderSide(color: Colors.grey.shade300)
-                          )
-                      ),
-                      child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '57'.tr,
-                                  style: TextStyle(fontSize: 18, color: Colors.black),
-                                ),
+                            border: Border(
+                                bottom: BorderSide(color: Colors.grey.shade300)
+                            )
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                '57'.tr,
+                                style: TextStyle(fontSize: 18, color: Colors.black),
                               ),
-                              Text(
-                                '123456',
-                                style: TextStyle(fontSize: 18, color: Colors.grey.shade500),
-                              ),
-                            ],
-                          )
+                            ),
+                            Text(
+                              '123456',
+                              style: TextStyle(fontSize: 18, color: Colors.grey.shade500),
+                            ),
+                          ],
+                        )
                     )
                   ],
                 ),
               ),
             ),
-            Column(
-              children: [
-                CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  child: Text(
-                    style: TextStyle(fontSize: 40, color: Colors.white),
-                    "A",
+            Obx((){
+              return Column(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    child: Text(
+                      style: TextStyle(fontSize: 40, color: Colors.white),
+                      "A",
+                    ),
+                    radius: 50,
                   ),
-                  radius: 50,
-                ),
-                Text(
-                  "Name",
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: AppColor.primaryColor,
-                      fontWeight: FontWeight.w600
-                  ),
-                )
-              ],
-            ),
+                  Text(
+                    controller.username.value.isNotEmpty? controller.username.value : "",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: AppColor.primaryColor,
+                        fontWeight: FontWeight.w600
+                    ),
+                  )
+                ],
+              );
+            }),
 
           ],
         ),
-      ),
+      )
     );
   }
 }

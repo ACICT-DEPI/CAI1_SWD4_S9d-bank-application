@@ -3,12 +3,15 @@ import 'package:get/get.dart';
 import 'package:vaulta/core/constant/color.dart';
 
 import '../../controller/settings/app_info_controller.dart';
+import '../../core/services/sevices.dart';
 
 class AppInfoScreen extends StatelessWidget {
   const AppInfoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    MyServices myServices = Get.find();
+    String? sharedPrefLang = myServices.sharedPreferences.getString('lang');
     AppInfoControllerImpl controller = Get.put(AppInfoControllerImpl());
     return Scaffold(
       appBar: AppBar(
@@ -98,7 +101,7 @@ class AppInfoScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'English',
+                      sharedPrefLang == 'en'? '2'.tr : '3'.tr,
                       style: TextStyle(fontSize: 17, color: AppColor.primaryColor, fontWeight: FontWeight.bold),
                     ),
                   ],

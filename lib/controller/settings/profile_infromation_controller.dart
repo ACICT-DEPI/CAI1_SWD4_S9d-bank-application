@@ -13,17 +13,36 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
   Rx<String> email = ''.obs;
   Rx<String> phone = ''.obs;
   Rx<String> profilePicture = ''.obs;
+  UserProfile userProfile = UserProfile();
+
 
   @override
+  void onReady() {
+    username.value = userProfile.username!;
+    email.value = userProfile.email!;
+    phone.value = userProfile.phoneNumber!;
+    profilePicture.value = userProfile.profilePictureUrl ?? "";
+    super.onReady();
+  }
+  @override
   void onInit(){
-    // retrieveUserData();
-    saveUserData();
+    // print("username is null: ${userProfile.username}");
+    // print("username is null: ${userProfile.phoneNumber}");
+    // print("username is null: ${userProfile.email}");
+    username.value = userProfile.username!;
+    // email.value = userProfile.email!;
+    // phone.value = userProfile.phoneNumber!;
+    profilePicture.value = userProfile.profilePictureUrl ?? "";
+    retrieveUserData();
+    everAll([email, phone], (values){
+      userProfile.email = email.value;
+      userProfile.phoneNumber = phone.value;
+    });
     super.onInit();
   }
 
   @override
-  goToEditProfile() async {
-    // await saveUserData();
+  goToEditProfile() {
     Get.toNamed(AppRoute.editProfileScreen);
   }
 
@@ -40,10 +59,8 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
             .get();
 
         if(userData.exists){
-          this.username.value = userData['username'];
           this.email.value = userData['email'];
           this.phone.value = userData['phone'];
-          this.profilePicture.value = userData.get('profile_picture') ?? '';
 
         }
         else{
@@ -54,21 +71,21 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
         print("no user is signed in");
       }
     }on FirebaseAuthException catch(e){
-      print("error: ${e.code}");
+      print("Error retrieving user data: ${e.message}");
     }
 
 
   }
 
-  Future<void> saveUserData() async {
-    await retrieveUserData();
-    UserProfile userLoggedIn = UserProfile();
-    userLoggedIn.updateProfile(
-        username: username.value,
-        email: email.value,
-        phoneNumber: phone.value,
-        profilePictureUrl: profilePicture.value);
-    return;
-  }
+  //
+  // Future<void> saveUserData() async {
+  //   await retrieveUserData();
+  //   UserProfile userLoggedIn = UserProfile();
+  //   userLoggedIn.updateProfile(
+  //       username: this.username.value,
+  //       email: this.email.value,
+  //       phoneNumber: this.phone.value,
+  //       profilePictureUrl: this.profilePicture.value);
+  // }
 
 }
