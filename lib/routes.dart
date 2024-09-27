@@ -55,7 +55,7 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoute.transactionReport, page: () => TransactionReportScreen()),
   GetPage(name: AppRoute.homePage, page: () => const HomePage()),
   GetPage(name: AppRoute.exchangeScreen, page: () => const ExchangeScreen()),
-  GetPage(name: AppRoute.settingsScreen, page: () => const SettingsScreen()),
+  GetPage(name: AppRoute.settingsScreen, page: () => SettingsScreen()),
   GetPage(
       name: AppRoute.profileInfromationScreen,
       page: () => const ProfileInfromationScrenn()),

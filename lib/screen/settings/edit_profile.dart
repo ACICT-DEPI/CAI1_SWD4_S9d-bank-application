@@ -5,22 +5,26 @@ import 'package:get/get.dart';
 import 'package:vaulta/controller/settings/edit_profile_controller.dart';
 import 'package:vaulta/core/constant/color.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
 
 class EditProfileScreen extends StatefulWidget {
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();
+
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
 
 
-  late var nameController = TextEditingController();
+  late TextEditingController nameController;
+  String usernameTxt = "";
 
-  late var phoneController = TextEditingController();
+  late TextEditingController phoneController;
+  String phoneTxt = "";
 
-  late var emailController = TextEditingController();
+  late TextEditingController emailController;
+  String emailTxt = "";
+
 
 
   Uint8List? _imagePicked;
@@ -32,6 +36,24 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     });
   }
 
+  void initState() {
+    super.initState();
+    nameController = TextEditingController();
+    phoneController = TextEditingController();
+    emailController = TextEditingController();
+    EditProfileControllerImpl controller = Get.put(EditProfileControllerImpl());
+    usernameTxt = controller.userProfile.value.username!;
+    phoneTxt = controller.userProfile.value.phoneNumber!;
+    emailTxt = controller.userProfile.value.email!;
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    phoneController.dispose();
+    emailController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +61,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     EditProfileControllerImpl controller = Get.put(EditProfileControllerImpl());
 
 
-
-
-    // nameController.text = controller.userProfile.username!;
-    // phoneController.text = controller.userProfile.phoneNumber!;
-    // emailController.text = controller.userProfile.email!;
+    setState(() {
+      nameController.text = usernameTxt;
+      emailController.text = emailTxt;
+      phoneController.text = phoneTxt;
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -59,9 +81,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         elevation: 0,
       ),
       body: Obx((){
-        nameController.text = controller.userProfile.value.username ?? '';
-        phoneController.text = controller.userProfile.value.phoneNumber ?? '';
-        emailController.text = controller.userProfile.value.email ?? '';
         return SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -69,9 +88,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               children: [
                 TextButton(
                   onPressed: (){
-                    //pick image
                     selectImage(controller);
-                    // controller.handleImageUploadAndSave();
                   },
                   child: Stack(
                     alignment: Alignment.bottomRight,
@@ -80,11 +97,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       CircleAvatar(
                         radius: 60,
                         backgroundImage: MemoryImage(_imagePicked!),
-                      ) : controller.userProfile.value.profilePictureUrl == null ?
+                      ) : controller.userProfile.value.profilePictureUrl == null || controller.userProfile.value.profilePictureUrl == "" ?
                       CircleAvatar(
                         radius: 60,
                         child: Text(
-                            controller.userProfile.value.username!.substring(0, 1),
+                            controller.userProfile.value.username![0],
                           style: TextStyle(fontSize: 50, color: AppColor.primaryColor),
                         ),
                       ) :
@@ -124,6 +141,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       Expanded(
                           flex: 3,
                           child: TextFormField(
+                            onChanged: (value){
+                              usernameTxt = value;
+                            },
                             controller: nameController,
                             style: TextStyle(
                                 color: Colors.black,
@@ -162,6 +182,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       Expanded(
                           flex: 3,
                           child: TextFormField(
+                            onChanged: (value){
+                              phoneTxt = value;
+                            },
                             controller: phoneController,
                             keyboardType: TextInputType.phone,
                             style: TextStyle(
@@ -201,6 +224,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       Expanded(
                           flex: 3,
                           child: TextFormField(
+                            onChanged: (value){
+                              emailTxt = value;
+                            },
                             keyboardType: TextInputType.emailAddress,
                             controller: emailController,
                             style: TextStyle(

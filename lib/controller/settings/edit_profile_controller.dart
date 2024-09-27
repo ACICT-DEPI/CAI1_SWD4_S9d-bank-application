@@ -30,7 +30,6 @@ class EditProfileControllerImpl extends EditProfileController {
   @override
   void onInit(){
     getUid();
-    print("username: ${userProfile.value.username}");
     super.onInit();
   }
 
@@ -70,8 +69,7 @@ class EditProfileControllerImpl extends EditProfileController {
     String response = "failed to update";
     try{
       String imageUrl = "";
-      print("is image null? ${image == null}");
-      image != null ? imageUrl = await uploadImageToFirebase(image) : imageUrl = '';
+      image != null ? imageUrl = await uploadImageToFirebase(image) : imageUrl = userProfile.value.profilePictureUrl!;
       await firestore.collection('users').doc(uid).update({
         'profile_picture': imageUrl,
         'username': newUsername,
@@ -81,7 +79,6 @@ class EditProfileControllerImpl extends EditProfileController {
       userProfile.value.updateProfile(username: newUsername,
           email: newEmail, phoneNumber: newPhone, profilePictureUrl: imageUrl);
       gotToProfileInformation();
-      print("imageUrl ${imageUrl}");
       response = "successful";
 
     }catch(e){

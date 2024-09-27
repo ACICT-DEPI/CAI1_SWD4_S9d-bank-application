@@ -22,12 +22,8 @@ class SettingsControllerImpl extends SettingsController {
 
   @override
   void onReady() {
-    print("on ready called");
     username.value = userProfile.username!;
     profilePicture.value = userProfile.profilePictureUrl!;
-    print("username is null: ${username.value.isNotEmpty}");
-    // print("phone is null: ${phone.value.isNotEmpty}");
-    // print("email is null: ${email.value.isNotEmpty}");
     super.onReady();
   }
 
@@ -35,9 +31,6 @@ class SettingsControllerImpl extends SettingsController {
   void onInit() {
     retrieveUserData();
     everAll([username, profilePicture], (values){
-      print("updated username!!!");
-      // print("phone ${phone.value}");
-      // print("email ${email.value}");
       userProfile.username = username.value;
       userProfile.profilePictureUrl = profilePicture.value;
     });
