@@ -23,21 +23,18 @@ class SettingsScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: AppColor.primaryColor,
             leading: IconButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new,
                   size: 20,
                   color: Colors.white,
-                )
-            ),
+                )),
             title: Text(
               '55'.tr,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white
-              ),
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             elevation: 0,
           ),
@@ -167,7 +164,23 @@ class SettingsScreen extends StatelessWidget {
                                       color: Colors.grey.shade500),
                                 ),
                               ],
-                            ))
+                            )),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Center(
+                          child: ElevatedButton.icon(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.red,
+                                  minimumSize: Size(double.infinity, 50)),
+                              onPressed: () {
+                                controller.signOut();
+                              },
+                              icon: Icon(Icons.logout, color: Colors.white),
+                              label: Text('Sign out',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.white))),
+                        )
                       ],
                     ),
                   ),
@@ -182,11 +195,12 @@ class SettingsScreen extends StatelessWidget {
                                   NetworkImage(controller.profilePicture.value),
                             )
                           : CircleAvatar(
-                              // backgroundColor: Colors.grey,
                               child: Text(
+                                controller.username.value.isNotEmpty
+                                    ? controller.username.value[0].toUpperCase()
+                                    : "", // Handle the case when username is empty
                                 style: TextStyle(
                                     fontSize: 40, color: AppColor.primaryColor),
-                                controller.username.value.substring(0, 1),
                               ),
                               radius: 50,
                             ),
@@ -202,11 +216,10 @@ class SettingsScreen extends StatelessWidget {
                     ],
                   );
                 }),
-
               ],
             ),
-          )
-      ),
-    );;
+          )),
+    );
+    ;
   }
 }

@@ -3,7 +3,6 @@ import 'package:focus_detector/focus_detector.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/controller/settings/profile_infromation_controller.dart';
 import 'package:vaulta/core/constant/color.dart';
-import 'package:vaulta/data/model/user_logged_in.dart';
 
 class ProfileInfromationScrenn extends StatelessWidget {
   const ProfileInfromationScrenn({super.key});
@@ -11,12 +10,13 @@ class ProfileInfromationScrenn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ProfileInfromationControllerImpl controller =
-    Get.put(ProfileInfromationControllerImpl());
+        Get.put(ProfileInfromationControllerImpl());
 
-    onResume(){
+    onResume() {
       controller.onReady();
     }
-    onPause(){}
+
+    onPause() {}
     return FocusDetector(
       onFocusGained: onResume,
       onFocusLost: onPause,
@@ -63,8 +63,8 @@ class ProfileInfromationScrenn extends StatelessWidget {
                               child: controller.profilePicture.value.isEmpty
                                   ? Text(
                                       controller.username.value.isNotEmpty
-                                          ? controller.username.value
-                                              .substring(0, 1)
+                                          ? controller.username.value[0]
+                                              .toUpperCase()
                                           : "A",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -183,10 +183,7 @@ class ProfileInfromationScrenn extends StatelessWidget {
                 ),
               );
             }
-          })
-      ),
+          })),
     );
   }
-
-
 }

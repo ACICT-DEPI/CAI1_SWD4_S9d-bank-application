@@ -21,24 +21,60 @@ class HomeControllerImpl extends HomeController {
   late FirebaseFirestore firestore;
   final FirebaseAuth auth = FirebaseAuth.instance; // Initialize Firebase Auth
 
+  // Fetch the username from Firestore
   fetchUsername() async {
     final user = await firestore.collection('users').doc(userId).get();
     username.value = user['username'];
-    fetchUserImage(); // Fetch the user image based on Firebase Auth user
   }
 
-  fetchUserImage() {
+  // Fetch the user image from Firestore or Firebase Auth
+  fetchUserImage() async {
     User? currentUser = auth.currentUser; // Get the current user
     if (currentUser != null) {
-      // Check if the user has a photo URL
-      if (currentUser.photoURL != null) {
-        imagePath.value = currentUser.photoURL!; // Fetch image URL if available
-      } else {
-        imagePath.value = ''; // Set to empty if no photo URL
+      try {
+        // Await the result of the Firestore query
+        var userDoc =
+            await firestore.collection('users').doc(currentUser.uid).get();
+        if (userDoc.exists &&
+            userDoc.data() != null &&
+            userDoc['profile_picture'] != '') {
+          imagePath.value = userDoc['profile_picture'] ?? '';
+          print('User image fetched from Firestore');
+        } else if (currentUser.photoURL != null) {
+          imagePath.value = currentUser.photoURL!;
+          print('User image fetched from Firebase Auth');
+        } else {
+          imagePath.value = ''; // Set to empty if no image is found
+          print('No user image found');
+        }
+      } catch (e) {
+        imagePath.value = ''; // Set to empty if there was an error
+        print('Error fetching user image from Firestore: $e');
       }
     } else {
       imagePath.value = ''; // Set to empty if no user is logged in
     }
+  }
+
+  // Fetch both username and image (to use in onReady)
+  fetchUserData() {
+    fetchUsername();
+    fetchUserImage();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+    // Fetch updated data when the screen is ready (e.g., after coming back from Settings)
+    fetchUserData();
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    userId = myServices.sharedPreferences.getString('userid')!;
+    firestore = FirebaseFirestore.instance;
+    fetchUserData(); // Initially load the user data
   }
 
   @override
@@ -59,13 +95,5 @@ class HomeControllerImpl extends HomeController {
   @override
   goToWithdrawScreen() {
     Get.offNamed(AppRoute.withdrawScreen);
-  }
-
-  @override
-  void onInit() {
-    super.onInit();
-    userId = myServices.sharedPreferences.getString('userid')!;
-    firestore = FirebaseFirestore.instance;
-    fetchUsername();
   }
 }

@@ -281,6 +281,7 @@ class LogInControllerImpl extends LogInController {
           'username': uniqueUsername,
           'phone': "",
           'balance': 0,
+          'profile_picture': '',
         });
         // Show dialog with generated username
         showAwesomeDialog(Get.context!,

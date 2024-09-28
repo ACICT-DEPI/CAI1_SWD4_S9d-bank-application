@@ -48,62 +48,56 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
     Get.offNamed(AppRoute.editProfileScreen);
   }
 
+  // @override
+  // Future<void> retrieveUserData() async {
+  //   try {
+  //     String? userId = myServices.sharedPreferences.getString('userid');
+  //     if (userId == null) {
+  //       print("User ID is null");
+  //       return;
+  //     }
+  //
+  //     DocumentSnapshot userData = await FirebaseFirestore.instance
+  //         .collection('users')
+  //         .doc(userId)
+  //         .get();
+  //
+  //     if (userData.exists) {
+  //       this.email.value = userData['email'] ?? '';
+  //       this.phone.value = userData['phone'] ?? '';
+  //       // this.profilePicture.value = userData['profile_picture'] ?? '';
+  //     } else {
+  //       print("No user data in Firestore");
+  //     }
+  //   } on FirebaseAuthException catch (e) {
+  //     print("Error retrieving user data: ${e.message}");
+  //   }
+  // }
   @override
   Future<void> retrieveUserData() async {
     try {
       String? userId = myServices.sharedPreferences.getString('userid');
-      if (userId == null) {
-        print("User ID is null");
-        return;
-      }
 
-      DocumentSnapshot userData = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(userId)
-          .get();
-
-      if (userData.exists) {
-        this.email.value = userData['email'] ?? '';
-        this.phone.value = userData['phone'] ?? '';
-        // this.profilePicture.value = userData['profile_picture'] ?? '';
-      } else {
-        print("No user data in Firestore");
-      }
-    } on FirebaseAuthException catch (e) {
-      print("Error retrieving user data: ${e.message}");
-    }
-  }
-
-  Future<void> retrieveUserData() async {
-    try{
-      User? user = FirebaseAuth.instance.currentUser;
-
-      if(user != null){
-        String userId = user.uid;
+      if (userId != null) {
+        // String userId = user.uid;
 
         DocumentSnapshot userData = await FirebaseFirestore.instance
             .collection('users')
             .doc(userId)
             .get();
 
-        if(userData.exists){
+        if (userData.exists) {
           this.email.value = userData['email'];
           this.phone.value = userData['phone'];
           this.profilePicture.value = userData['profile_picture'];
-
-        }
-        else{
+        } else {
           print("no userdata in firestore");
         }
-      }
-      else{
+      } else {
         print("no user is signed in");
       }
-    }on FirebaseAuthException catch(e){
+    } on FirebaseAuthException catch (e) {
       print("Error retrieving user data: ${e.message}");
     }
-
-
   }
-
 }
