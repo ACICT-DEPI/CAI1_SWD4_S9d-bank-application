@@ -182,7 +182,7 @@ class SettingsScreen extends StatelessWidget {
                         // backgroundColor: Colors.grey,
                         child: Text(
                           style: TextStyle(fontSize: 40, color: AppColor.primaryColor),
-                          controller.username.value.substring(0, 1),
+                          controller.username.value.isEmpty? "" : controller.username.value.substring(0, 1),
                         ),
                         radius: 50,
                       ),
