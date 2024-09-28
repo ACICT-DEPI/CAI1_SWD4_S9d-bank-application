@@ -7,16 +7,15 @@ import 'package:vaulta/core/constant/color.dart';
 class SettingsScreen extends StatelessWidget {
   SettingsScreen({super.key});
 
-
-
-  onPause(){}
+  onPause() {}
 
   @override
   Widget build(BuildContext context) {
     SettingsControllerImpl controller = Get.put(SettingsControllerImpl());
-    onResume(){
+    onResume() {
       controller.onReady();
     }
+
     return FocusDetector(
       onFocusGained: onResume,
       onFocusLost: onPause,
@@ -55,10 +54,8 @@ class SettingsScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(25),
-                            topRight: Radius.circular(25)
-                        ),
-                        color: Colors.white
-                    ),
+                            topRight: Radius.circular(25)),
+                        color: Colors.white),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -69,9 +66,8 @@ class SettingsScreen extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey.shade300)
-                              )
-                          ),
+                                  bottom:
+                                      BorderSide(color: Colors.grey.shade300))),
                           child: TextButton(
                               onPressed: () {
                                 controller.gotToProfileInformation();
@@ -82,10 +78,12 @@ class SettingsScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       '56'.tr,
-                                      style: TextStyle(fontSize: 18, color: Colors.black),
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.black),
                                     ),
                                   ),
-                                  Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
+                                  Icon(Icons.arrow_forward_ios_rounded,
+                                      size: 16, color: Colors.grey.shade300)
                                 ],
                               )),
                         ),
@@ -95,9 +93,8 @@ class SettingsScreen extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey.shade300)
-                              )
-                          ),
+                                  bottom:
+                                      BorderSide(color: Colors.grey.shade300))),
                           child: TextButton(
                               onPressed: () {
                                 controller.goToLanguage();
@@ -108,10 +105,12 @@ class SettingsScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       '50'.tr,
-                                      style: TextStyle(fontSize: 18, color: Colors.black),
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.black),
                                     ),
                                   ),
-                                  Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
+                                  Icon(Icons.arrow_forward_ios_rounded,
+                                      size: 16, color: Colors.grey.shade300)
                                 ],
                               )),
                         ),
@@ -121,9 +120,8 @@ class SettingsScreen extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           decoration: BoxDecoration(
                               border: Border(
-                                  bottom: BorderSide(color: Colors.grey.shade300)
-                              )
-                          ),
+                                  bottom:
+                                      BorderSide(color: Colors.grey.shade300))),
                           child: TextButton(
                               onPressed: () {
                                 controller.goToAppInfo();
@@ -134,65 +132,72 @@ class SettingsScreen extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       '51'.tr,
-                                      style: TextStyle(fontSize: 18, color: Colors.black),
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.black),
                                     ),
                                   ),
-                                  Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey.shade300)
+                                  Icon(Icons.arrow_forward_ios_rounded,
+                                      size: 16, color: Colors.grey.shade300)
                                 ],
                               )),
                         ),
                         Container(
-                            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 7),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 7),
                             width: double.infinity,
                             alignment: Alignment.centerLeft,
                             decoration: BoxDecoration(
                                 border: Border(
-                                    bottom: BorderSide(color: Colors.grey.shade300)
-                                )
-                            ),
+                                    bottom: BorderSide(
+                                        color: Colors.grey.shade300))),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Expanded(
                                   child: Text(
                                     '57'.tr,
-                                    style: TextStyle(fontSize: 18, color: Colors.black),
+                                    style: TextStyle(
+                                        fontSize: 18, color: Colors.black),
                                   ),
                                 ),
                                 Text(
                                   '123456',
-                                  style: TextStyle(fontSize: 18, color: Colors.grey.shade500),
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.grey.shade500),
                                 ),
                               ],
-                            )
-                        )
+                            ))
                       ],
                     ),
                   ),
                 ),
-                Obx((){
+                Obx(() {
                   return Column(
                     children: [
-                      controller.profilePicture.value.isNotEmpty?
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(controller.profilePicture.value),
-                      ):
-                      CircleAvatar(
-                        // backgroundColor: Colors.grey,
-                        child: Text(
-                          style: TextStyle(fontSize: 40, color: AppColor.primaryColor),
-                          controller.username.value.isEmpty? "" : controller.username.value.substring(0, 1),
-                        ),
-                        radius: 50,
-                      ),
+                      controller.profilePicture.value.isNotEmpty
+                          ? CircleAvatar(
+                              radius: 50,
+                              backgroundImage:
+                                  NetworkImage(controller.profilePicture.value),
+                            )
+                          : CircleAvatar(
+                              // backgroundColor: Colors.grey,
+                              child: Text(
+                                style: TextStyle(
+                                    fontSize: 40, color: AppColor.primaryColor),
+                                controller.username.value.substring(0, 1),
+                              ),
+                              radius: 50,
+                            ),
                       Text(
-                        controller.username.value.isNotEmpty? controller.username.value : "",
+                        controller.username.value.isNotEmpty
+                            ? controller.username.value
+                            : "",
                         style: TextStyle(
                             fontSize: 20,
                             color: AppColor.primaryColor,
-                            fontWeight: FontWeight.w600
-                        ),
+                            fontWeight: FontWeight.w600),
                       )
                     ],
                   );

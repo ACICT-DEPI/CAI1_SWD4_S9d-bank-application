@@ -1,4 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:vaulta/screen/Account.dart';
 import 'package:vaulta/screen/auth/forget_password/forget_passowrd.dart';
 import 'package:vaulta/screen/auth/forget_password/reset_password.dart';
 import 'package:vaulta/screen/auth/forget_password/success_reset_password.dart';
@@ -59,8 +60,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: AppRoute.profileInfromationScreen,
       page: () => const ProfileInfromationScrenn()),
-  GetPage(
-      name: AppRoute.editProfileScreen, page: () => EditProfileScreen()),
+  GetPage(name: AppRoute.editProfileScreen, page: () => EditProfileScreen()),
   GetPage(
       name: AppRoute.languageProfileScreen,
       page: () => const LanguageProfileScreen()),
@@ -69,6 +69,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: AppRoute.successWithdrawScreen,
       page: () => const SuccessWithdraw()),
+  GetPage(name: AppRoute.accountAndCardScreen, page: () => AccountAndCard()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routes = {

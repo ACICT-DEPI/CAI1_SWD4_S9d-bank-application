@@ -21,8 +21,8 @@ class ContainerTransactions extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          width: 140, // Slightly increased the width
-          height: 140, // Slightly increased the height
+          width: 140,
+          height: 140,
           decoration: BoxDecoration(
             color: isSelect
                 ? AppColor.primaryColor.withOpacity(0.8)

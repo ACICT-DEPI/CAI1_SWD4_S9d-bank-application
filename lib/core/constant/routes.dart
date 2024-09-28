@@ -24,4 +24,5 @@ class AppRoute {
   static const String appInfoScreen = '/appInfo';
   static const String withdrawScreen = '/withdraw';
   static const String successWithdrawScreen = '/successWithdraw';
+  static const String accountAndCardScreen = '/accountAndCard';
 }

@@ -9,13 +9,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize the controller using Get.put
     HomePageControllerImpl controller = Get.put(HomePageControllerImpl());
 
     return Scaffold(
-      // Use Obx to reactively listen to changes in selectedIndex
       body: Obx(() {
-        // Return the current tab's widget based on selectedIndex
         return controller.tabs[controller.selectedIndex.value];
       }),
       bottomNavigationBar: GNav(

@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(90), // Custom app bar height
         child: AppBar(
+          leading: null,
           backgroundColor: AppColor.primaryColor,
           title: Padding(
             padding: EdgeInsets.only(top: 16.0),
@@ -27,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath: controller.imagePath.value,
                   label: controller.username.value.isNotEmpty
                       ? controller.username.value
-                      : 'Loading...', // Show 'Loading...' until the username is available
+                      : 'Loading...',
                 )),
           ),
         ),

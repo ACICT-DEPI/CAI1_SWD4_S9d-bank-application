@@ -19,5 +19,9 @@ class AppImageassets {
   static const String arrow = '$rootImages/Arrow.png';
   static const String avatar = '$rootImages/Avatar.png';
   static const String alarm = '$rootImages/alarm.png';
+  static const String blueVisa = '$rootImages/blue_visa.png';
+  static const String yellowVisa = '$rootImages/yellow_visa.png';
+  static const String transactionReportItemImage =
+      '$rootImages/transaction_img.jpeg';
 }
 // assets/images/onboardingfour.PNG

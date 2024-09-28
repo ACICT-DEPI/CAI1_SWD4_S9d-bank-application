@@ -48,7 +48,7 @@ class HomeControllerImpl extends HomeController {
 
   @override
   goToAccountScreen() {
-    throw UnimplementedError();
+    Get.offNamed(AppRoute.accountAndCardScreen);
   }
 
   @override
