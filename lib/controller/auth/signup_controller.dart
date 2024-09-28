@@ -19,7 +19,7 @@ class SignupControllerImpl extends SignupController {
   late TextEditingController usernameController;
   late TextEditingController PhoneController;
   late GlobalKey<FormState> formKey;
-
+  late FirebaseFirestore firestore;
   @override
   void signUp() async {
     var formData = formKey.currentState;
@@ -29,7 +29,7 @@ class SignupControllerImpl extends SignupController {
       showLoading(Get.context!);
 
       try {
-        final usernameCheck = await FirebaseFirestore.instance
+        final usernameCheck = await firestore
             .collection('users')
             .where('username', isEqualTo: usernameController.text)
             .get();
@@ -47,10 +47,7 @@ class SignupControllerImpl extends SignupController {
         final credential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
                 email: emailController.text, password: passwordController.text);
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(credential.user!.uid)
-            .set({
+        await firestore.collection('users').doc(credential.user!.uid).set({
           'username': usernameController.text,
           'email': emailController.text,
           'phone': PhoneController.text,
@@ -103,6 +100,7 @@ class SignupControllerImpl extends SignupController {
     usernameController = TextEditingController();
     PhoneController = TextEditingController();
     formKey = GlobalKey<FormState>();
+    firestore = FirebaseFirestore.instance;
   }
 
   @override

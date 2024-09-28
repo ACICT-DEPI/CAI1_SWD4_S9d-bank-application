@@ -16,10 +16,14 @@ class AppInfoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: (){Navigator.pop(context);},
-            icon: Icon(Icons.arrow_back_ios_new_rounded)
+            onPressed: () {
+              controller.goToSettings();
+            },
+            icon: Icon(Icons.arrow_back_ios_new_rounded)),
+        title: Text(
+          '51'.tr,
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        title: Text('51'.tr, style: TextStyle(fontWeight: FontWeight.bold),),
         elevation: 0,
       ),
       body: Container(
@@ -28,34 +32,15 @@ class AppInfoScreen extends StatelessWidget {
           children: [
             Center(
               child: Text(
-                  'CaBank E-mobile Banking',
-              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 22),),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              width: double.infinity,
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: Colors.grey.shade300)
-                  )
+                'CaBank E-mobile Banking',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22),
               ),
-              child:Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          '52'.tr,
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                      ),
-                      Text(
-                        '54'.tr,
-                        style: TextStyle(fontSize: 17, color: AppColor.primaryColor, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  )
+            ),
+            SizedBox(
+              height: 10,
             ),
             Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -63,10 +48,33 @@ class AppInfoScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 decoration: BoxDecoration(
                     border: Border(
-                        bottom: BorderSide(color: Colors.grey.shade300)
-                    )
-                ),
-                child:Row(
+                        bottom: BorderSide(color: Colors.grey.shade300))),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        '52'.tr,
+                        style: TextStyle(fontSize: 18, color: Colors.black),
+                      ),
+                    ),
+                    Text(
+                      '54'.tr,
+                      style: TextStyle(
+                          fontSize: 17,
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                )),
+            Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                width: double.infinity,
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(color: Colors.grey.shade300))),
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Expanded(
@@ -77,21 +85,21 @@ class AppInfoScreen extends StatelessWidget {
                     ),
                     Text(
                       '1.0.1',
-                      style: TextStyle(fontSize: 17, color: AppColor.primaryColor, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 17,
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
-                )
-            ),
+                )),
             Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
                 alignment: Alignment.centerLeft,
                 decoration: BoxDecoration(
                     border: Border(
-                        bottom: BorderSide(color: Colors.grey.shade300)
-                    )
-                ),
-                child:Row(
+                        bottom: BorderSide(color: Colors.grey.shade300))),
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Expanded(
@@ -101,12 +109,14 @@ class AppInfoScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      sharedPrefLang == 'en'? '2'.tr : '3'.tr,
-                      style: TextStyle(fontSize: 17, color: AppColor.primaryColor, fontWeight: FontWeight.bold),
+                      sharedPrefLang == 'en' ? '2'.tr : '3'.tr,
+                      style: TextStyle(
+                          fontSize: 17,
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
-                )
-            ),
+                )),
           ],
         ),
       ),

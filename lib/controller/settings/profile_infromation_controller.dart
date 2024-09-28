@@ -8,6 +8,7 @@ import 'package:vaulta/data/model/user_logged_in.dart';
 abstract class ProfileInfromationController extends GetxController {
   goToEditProfile();
   Future<void> retrieveUserData();
+  goToSettings();
 }
 
 class ProfileInfromationControllerImpl extends ProfileInfromationController {
@@ -99,5 +100,10 @@ class ProfileInfromationControllerImpl extends ProfileInfromationController {
     } on FirebaseAuthException catch (e) {
       print("Error retrieving user data: ${e.message}");
     }
+  }
+
+  @override
+  goToSettings() {
+    Get.back();
   }
 }

@@ -65,7 +65,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         backgroundColor: AppColor.primaryColor,
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              controller.gotToProfileInformation();
             },
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,

@@ -22,15 +22,6 @@ class SettingsScreen extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: AppColor.primaryColor,
-            leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios_new,
-                  size: 20,
-                  color: Colors.white,
-                )),
             title: Text(
               '55'.tr,
               style:

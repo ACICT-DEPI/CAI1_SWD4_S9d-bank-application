@@ -25,7 +25,7 @@ class ProfileInfromationScrenn extends StatelessWidget {
             backgroundColor: AppColor.primaryColor,
             leading: IconButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  controller.goToSettings();
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_new_rounded,
