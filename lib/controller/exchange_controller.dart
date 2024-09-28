@@ -26,7 +26,7 @@ class ExchangeControllerImpl extends ExchangeController {
     double amount = double.parse(amountController.text);
 
     if (valueChoose.value == "USD" && valueChoose1.value == "EGP") {
-      calc = amount * 30.97;
+      calc = amount * 48.30;
       res = calc;
     } else if (valueChoose.value == "USD" && valueChoose1.value == "QAR") {
       calc = amount * 3.64;
@@ -83,22 +83,22 @@ class ExchangeControllerImpl extends ExchangeController {
       calc = amount * 9.60;
       res = calc;
     } else if (valueChoose.value == "BHD" && valueChoose1.value == "EGP") {
-      calc = amount * 80.00;
+      calc = amount * 128.6;
       res = calc;
     } else if (valueChoose.value == "EGP" && valueChoose1.value == "EGP") {
       calc = amount * 1;
       res = calc;
     } else if (valueChoose.value == "EGP" && valueChoose1.value == "USD") {
-      calc = amount * 0.032;
+      calc = amount * 0.02;
       res = calc;
     } else if (valueChoose.value == "EGP" && valueChoose1.value == "EUR") {
-      calc = amount * 0.029;
+      calc = amount * 0.018;
       res = calc;
     } else if (valueChoose.value == "EGP" && valueChoose1.value == "BHD") {
-      calc = amount * 0.012;
+      calc = amount * 0.0078;
       res = calc;
     } else if (valueChoose.value == "EGP" && valueChoose1.value == "QAR") {
-      calc = amount * 0.12;
+      calc = amount * 0.075;
       res = calc;
     } else {
       resultController.text = "Invalid, please choose currencies first";

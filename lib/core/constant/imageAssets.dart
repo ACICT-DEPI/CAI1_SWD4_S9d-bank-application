@@ -11,11 +11,17 @@ class AppImageassets {
   static const String successTransferImage = '$rootImages/success_transfer.png';
   static const String visaImage = '$rootImages/visa.png';
   static const String transferImage = '$rootImages/transfer.png';
-  static const String withdrawImage = '$rootImages/withdraw.png';
-  static const String reportImage = '$rootImages/report.png';
-  static const String accountImage = '$rootImages/account.png';
+  static const String withdrawImage = '$rootImages/Withdraw.png';
+  static const String reportImage = '$rootImages/transcation.png';
+  static const String accountImage = '$rootImages/Account.png';
   static const String withdraw = '$rootImages/withdraw_img.png';
   static const String exchange = '$rootImages/exchange.png';
   static const String arrow = '$rootImages/Arrow.png';
+  static const String avatar = '$rootImages/Avatar.png';
+  static const String alarm = '$rootImages/alarm.png';
+  static const String blueVisa = '$rootImages/blue_visa.png';
+  static const String yellowVisa = '$rootImages/yellow_visa.png';
+  static const String transactionReportItemImage =
+      '$rootImages/transaction_img.jpeg';
 }
 // assets/images/onboardingfour.PNG

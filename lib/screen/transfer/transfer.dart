@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vaulta/core/constant/color.dart'; // Assuming AppColor is defined in this file.
+import 'package:vaulta/core/constant/color.dart';
 import 'package:vaulta/core/functions/valid_input.dart';
 import 'package:vaulta/widget/auth/custom_button_auth.dart';
 import 'package:vaulta/widget/auth/custom_textFormAuth.dart';
@@ -29,8 +29,7 @@ class TransferScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding:
-              const EdgeInsets.all(24), // Adjusted padding for better spacing
+          padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -42,8 +41,7 @@ class TransferScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
-                  height: 16), // Added space between the title and container
+              SizedBox(height: 16),
               GetBuilder<TransferControllerImpl>(builder: (context) {
                 return Row(
                   children: [
@@ -135,7 +133,6 @@ class TransferScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
               SizedBox(
                 height: 16,
               ),
@@ -185,7 +182,7 @@ class TransferScreen extends StatelessWidget {
                         labelTxt: 'Content',
                         myController: controller.contentController,
                         validator: (val) {
-                          return validInput(val!, 50, 1000, 'content');
+                          return validInput(val!, 10, 1000, 'content');
                         },
                         keyboardType: TextInputType.text),
                   ],
@@ -199,7 +196,7 @@ class TransferScreen extends StatelessWidget {
                 children: [
                   GetBuilder<TransferControllerImpl>(builder: (context) {
                     return Transform.scale(
-                      scale: 1.2, // Adjust the size of the checkbox
+                      scale: 1.2,
                       child: Checkbox(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4),
@@ -214,12 +211,12 @@ class TransferScreen extends StatelessWidget {
                       ),
                     );
                   }),
-                  SizedBox(width: 12), // Space between checkbox and text
+                  SizedBox(width: 12),
                   Text(
                     'Save to directory of recents',
                     style: TextStyle(
-                      fontSize: 16, // Adjust font size
-                      color: Colors.grey, // Text color matching your design
+                      fontSize: 16,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
