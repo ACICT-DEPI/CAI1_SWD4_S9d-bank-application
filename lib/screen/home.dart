@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath: controller.imagePath.value,
                   label: controller.username.value.isNotEmpty
                       ? controller.username.value
-                      : 'Loading...', // Show 'Loading...' until the username is available
+                      : 'Loading...',
                 )),
           ),
         ),
