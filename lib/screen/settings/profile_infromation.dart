@@ -144,16 +144,19 @@ class ProfileInfromationScrenn extends StatelessWidget {
                           Expanded(
                             flex: 6,
                             child: Obx(() {
-                              return Text(
-                                controller.email.value.isNotEmpty
-                                    ? controller.email.value
-                                    : "",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.black.withOpacity(0.7),
-                                    fontWeight: FontWeight.bold),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
+                              return Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  controller.email.value.isNotEmpty
+                                      ? controller.email.value
+                                      : "",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.black.withOpacity(0.7),
+                                      fontWeight: FontWeight.bold),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                ),
                               );
                             }),
                           )
