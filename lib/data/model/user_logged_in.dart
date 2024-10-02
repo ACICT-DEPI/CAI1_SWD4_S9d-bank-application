@@ -11,6 +11,8 @@ class UserProfile {
   String? email;
   String? phoneNumber;
   String? profilePictureUrl;
+  num balance = 0;
+  String? accountNumber;
 
 
 
