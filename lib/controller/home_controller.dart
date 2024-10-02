@@ -10,6 +10,7 @@ abstract class HomeController extends GetxController {
   goToTransactionScreen();
   goToWithdrawScreen();
   goToAccountScreen();
+  goToBillScreen();
 }
 
 class HomeControllerImpl extends HomeController {
@@ -95,5 +96,10 @@ class HomeControllerImpl extends HomeController {
   @override
   goToWithdrawScreen() {
     Get.offNamed(AppRoute.withdrawScreen);
+  }
+
+  @override
+  goToBillScreen() {
+    Get.offNamed(AppRoute.billScreen);
   }
 }

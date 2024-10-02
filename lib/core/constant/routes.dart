@@ -25,4 +25,9 @@ class AppRoute {
   static const String withdrawScreen = '/withdraw';
   static const String successWithdrawScreen = '/successWithdraw';
   static const String accountAndCardScreen = '/accountAndCard';
+  static const String billScreen = '/bill';
+  static const String electricBillScreen = '/electricBill';
+  static const String mobileBillScreen = '/mobileBill';
+  static const String waterBillScreen = '/waterBill';
+  static const String internetBillScreen = '/internetBill';
 }

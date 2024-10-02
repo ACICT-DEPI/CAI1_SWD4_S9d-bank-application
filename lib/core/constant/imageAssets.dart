@@ -21,6 +21,12 @@ class AppImageassets {
   static const String alarm = '$rootImages/alarm.png';
   static const String blueVisa = '$rootImages/blue_visa.png';
   static const String yellowVisa = '$rootImages/yellow_visa.png';
+  static const String billImage = '$rootImages/bill.png';
+  static const String electricImage = '$rootImages/electeric.png';
+  static const String internetImage = '$rootImages/internet.png';
+  static const String mobileImage = '$rootImages/mobile.png';
+  static const String waterImage = '$rootImages/water.png';
+  static const String successPayment = '$rootImages/success_payment.png';
   static const String transactionReportItemImage =
       '$rootImages/transaction_img.jpeg';
 }

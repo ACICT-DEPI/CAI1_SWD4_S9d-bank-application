@@ -43,6 +43,12 @@ class HomeGridview extends StatelessWidget {
               },
               imagePath: AppImageassets.accountImage,
               label: 'Account'),
+          GridViewItem(
+              onTap: () {
+                controller.goToBillScreen();
+              },
+              imagePath: AppImageassets.billImage,
+              label: 'Pay the bill'),
         ],
       ),
     );

@@ -8,6 +8,11 @@ import 'package:vaulta/screen/auth/login.dart';
 import 'package:vaulta/screen/auth/signup.dart';
 import 'package:vaulta/screen/auth/success_sign_up.dart';
 import 'package:vaulta/screen/auth/verify_code_sign_up.dart';
+import 'package:vaulta/screen/bill/bill_screen.dart';
+import 'package:vaulta/screen/bill/electric_bill_screen.dart';
+import 'package:vaulta/screen/bill/internet_bill_screen.dart';
+import 'package:vaulta/screen/bill/mobile_bill_screen.dart';
+import 'package:vaulta/screen/bill/water_bill_screen.dart';
 import 'package:vaulta/screen/exchange.dart';
 import 'package:vaulta/screen/home.dart';
 import 'package:vaulta/screen/home_page.dart';
@@ -70,6 +75,16 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoute.successWithdrawScreen,
       page: () => const SuccessWithdraw()),
   GetPage(name: AppRoute.accountAndCardScreen, page: () => AccountAndCard()),
+  GetPage(name: AppRoute.billScreen, page: () => const BillScreen()),
+  GetPage(
+      name: AppRoute.electricBillScreen,
+      page: () => const ElectricBillScreen()),
+  GetPage(
+      name: AppRoute.mobileBillScreen, page: () => const MobileBillScreen()),
+  GetPage(name: AppRoute.waterBillScreen, page: () => const WaterBillScreen()),
+  GetPage(
+      name: AppRoute.internetBillScreen,
+      page: () => const InternetBillScreen()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routes = {

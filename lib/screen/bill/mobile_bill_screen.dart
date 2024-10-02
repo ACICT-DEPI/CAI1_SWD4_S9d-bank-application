@@ -1,0 +1,136 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vaulta/controller/bill/mobile_bill_controller.dart';
+
+import '../../core/constant/color.dart';
+import '../../core/functions/valid_input.dart';
+import '../../widget/auth/custom_button_auth.dart';
+import '../../widget/auth/custom_textFormAuth.dart';
+import '../../widget/bill/bill_row.dart';
+import '../../widget/bill/dashed_divider.dart';
+import '../../widget/bill/price_item.dart';
+
+class MobileBillScreen extends StatelessWidget {
+  const MobileBillScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    MobileBillControllerImpl controller = Get.put(MobileBillControllerImpl());
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Mobile Bill'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            controller.goToBillScreen();
+          },
+        ),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(horizontal: 18),
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        spreadRadius: 5,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'All the Bills',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                      SizedBox(height: 20),
+                      const BillRow(label: 'Name', value: 'Ahmed Salah'),
+                      const SizedBox(height: 16),
+                      const BillRow(
+                          label: 'Phone number', value: '01553161624'),
+                      const SizedBox(height: 16),
+                      const BillRow(label: 'Code', value: '123456789'),
+                      const SizedBox(height: 16),
+                      const BillRow(label: 'From', value: '1/1/2021'),
+                      const SizedBox(height: 16),
+                      const BillRow(label: 'To', value: '1/2/2021'),
+                      const SizedBox(height: 16),
+                      PriceItem(
+                          label: 'Mobile fee',
+                          price: '\$50',
+                          color: AppColor.primaryColor),
+                      const SizedBox(height: 12),
+                      DashedDivider(),
+                      const SizedBox(height: 16),
+                      PriceItem(
+                          label: 'Tax',
+                          price: '\$10',
+                          color: AppColor.primaryColor),
+                      SizedBox(height: 12),
+                      DashedDivider(),
+                      SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'TOTAL',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '\$60',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 32),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 24),
+              child: CustomTextformAuth(
+                  hintTxt: 'Enter your username',
+                  labelTxt: 'Username',
+                  myController: controller.usernameController,
+                  validator: (val) {
+                    validInput(val!, 6, 30, 'username');
+                  },
+                  keyboardType: TextInputType.text),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0), // Add some padding
+              child: CustomButtonAuth(
+                title: 'Pay the bill',
+                onPressed: () {},
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

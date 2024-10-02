@@ -18,16 +18,19 @@ class Assets {
   static const String imagesAlarm = 'assets/images/alarm.png';
   static const String imagesArrow = 'assets/images/Arrow.png';
   static const String imagesAvatar = 'assets/images/Avatar.png';
+  static const String imagesBill = 'assets/images/bill.png';
   static const String imagesBlueVisa = 'assets/images/blue_visa.png';
   static const String imagesEg = 'assets/images/eg.png';
+  static const String imagesElecteric = 'assets/images/electeric.png';
   static const String imagesExchange = 'assets/images/exchange.png';
   static const String imagesForgetPassword =
       'assets/images/forget_password.png';
   static const String imagesGoogleIcon = 'assets/images/google_icon.png';
+  static const String imagesInternet = 'assets/images/internet.png';
   static const String imagesLogin = 'assets/images/login.png';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesMibile = 'assets/images/mobile.png';
   static const String imagesOne = 'assets/images/one.png';
-  static const String imagesReport = 'assets/images/report.png';
   static const String imagesSignup = 'assets/images/signup.png';
   static const String imagesSuccessTransfer =
       'assets/images/success_transfer.png';
@@ -39,6 +42,7 @@ class Assets {
   static const String imagesTwo = 'assets/images/two.png';
   static const String imagesUs = 'assets/images/us.png';
   static const String imagesVisa = 'assets/images/visa.png';
+  static const String imagesWater = 'assets/images/water.png';
   static const String imagesWithdraw = 'assets/images/Withdraw.png';
   static const String imagesWithdrawImg = 'assets/images/withdraw_img.png';
   static const String imagesYellowVisa = 'assets/images/yellow_visa.png';
