@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/controller/home_controller.dart';
+import 'package:vaulta/controller/home_page_controller.dart';
 import 'package:vaulta/core/constant/color.dart';
 import 'package:vaulta/widget/home/custom_home_appbar.dart';
 import 'package:vaulta/widget/home/visa_image.dart';
@@ -13,25 +14,34 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeControllerImpl controller = Get.put(HomeControllerImpl());
+    HomePageControllerImpl homePageController =
+        Get.put(HomePageControllerImpl());
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(90), // Custom app bar height
         child: AppBar(
-          leading: null,
-          backgroundColor: AppColor.primaryColor,
-          title: Padding(
-            padding: EdgeInsets.only(top: 16.0),
-            // Observe changes in the username
-            child: Obx(() => CustomHomeAppbar(
-                  imagePath: controller.imagePath.value,
-                  label: controller.username.value.isNotEmpty
-                      ? controller.username.value
-                      : 'Loading...',
-                )),
-          ),
-        ),
+            elevation: 0,
+            leading: null,
+            backgroundColor: AppColor.primaryColor,
+            title: Obx(() {
+              return InkWell(
+                onTap: () {
+                  homePageController.changeTab(2); // Set tab to Settings tab
+                  homePageController.selectedIndex.value = 2;
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(top: 16.0),
+                  child: CustomHomeAppbar(
+                    imagePath: controller.imagePath.value,
+                    label: controller.username.value.isNotEmpty
+                        ? controller.username.value
+                        : 'Loading...',
+                  ),
+                ),
+              );
+            })),
       ),
       body: SingleChildScrollView(
         child: Container(

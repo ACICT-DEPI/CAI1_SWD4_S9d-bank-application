@@ -79,6 +79,7 @@ class TransferControllerImpl extends TransferController {
   goToConfirmTransaction() async {
     try {
       showLoading(Get.context!);
+
       // Validate the form
       if (formKey.currentState!.validate()) {
         final sharedPreferences = Get.find<SharedPreferences>();
@@ -141,24 +142,27 @@ class TransferControllerImpl extends TransferController {
           }, dialogType: DialogType.error);
           return;
         }
-        final resentQuerySnapshot = await _firestore
+
+        // Check if both the receiverId and senderId exist in the 'recents' collection
+        final resentQuerySnapshot = await FirebaseFirestore.instance
             .collection('recents')
-            .where(isSelectPhone ? 'phone' : 'username',
-                isEqualTo: isSelectPhone
-                    ? receiverSnapshot.docs.first['phone']
-                    : usernameController.text)
+            .where('fromid', isEqualTo: userId)
+            .where('to', isEqualTo: receiverSnapshot.docs.first['uid'])
             .get();
-        if (isChecked && resentQuerySnapshot.docs.isNotEmpty) {
+
+        if (resentQuerySnapshot.docs.isNotEmpty) {
           hideLoading(Get.context!);
           showAwesomeDialog(Get.context!,
-              title: 'user found',
-              desc: 'Ypu can\'t add a user exists in that list',
-              onOk: () {},
-              dialogType: DialogType.error);
+              title: 'User Found',
+              desc: 'You can\'t add a user who already exists in the list',
+              onOk: () {
+            Get.back();
+          }, dialogType: DialogType.error);
           return;
         }
-        hideLoading(Get.context!);
+
         // Navigate to the confirmation page with transaction details
+        hideLoading(Get.context!);
         Get.toNamed(AppRoute.confirmTransfer, arguments: {
           'isSelectPhone': isSelectPhone,
           'phone': phoneController.text,
