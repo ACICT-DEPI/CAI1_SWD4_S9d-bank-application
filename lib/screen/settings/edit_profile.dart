@@ -12,6 +12,12 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+
+  bool isUsernameValid = true;
+  bool isEmailValid = true;
+  bool isPhoneValid = true;
+
+
   late TextEditingController nameController;
   String usernameTxt = "";
 
@@ -164,6 +170,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 fontWeight: FontWeight.normal,
                                 overflow: TextOverflow.ellipsis),
                             decoration: InputDecoration(
+                              errorText: isUsernameValid? null : "this username is not valid!",
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                   borderSide: BorderSide(
@@ -177,6 +184,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               filled: true,
                               fillColor: AppColor.primaryColor.withOpacity(0.2),
                             ),
+
                           ))
                     ],
                   ),
@@ -207,6 +215,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 fontWeight: FontWeight.normal,
                                 overflow: TextOverflow.ellipsis),
                             decoration: InputDecoration(
+                              errorText: isPhoneValid? null : "this phone is not valid!",
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                   borderSide: BorderSide(
@@ -250,6 +259,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 fontWeight: FontWeight.normal,
                                 overflow: TextOverflow.ellipsis),
                             decoration: InputDecoration(
+                              errorText: isEmailValid? null : "this email is not valid!",
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                   borderSide: BorderSide(
@@ -275,13 +285,40 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         borderRadius: BorderRadius.circular(20),
                         color: AppColor.primaryColor),
                     child: TextButton(
-                        onPressed: () {
+                        onPressed: () async{
+
+                          bool isUsernameValidTmp = await controller
+                              .checkUsernameValidity(nameController.text);
+                          bool isPhoneValidTmp = await controller
+                              .checkPhoneValidity(phoneController.text);
+                          bool isEmailValidTmp = await controller
+                              .checkEmailValidity(emailController.text);
+
                           //save logic
-                          controller.saveData(
-                              image: _imagePicked,
-                              newEmail: emailController.text,
-                              newUsername: nameController.text,
-                              newPhone: phoneController.text);
+                          setState((){
+                            if(emailController.text == controller.userProfile.value.email){
+                              isEmailValidTmp = true;
+                            }
+                            if(phoneController.text == controller.userProfile.value.phoneNumber){
+                              isPhoneValidTmp = true;
+                            }
+                            if(nameController.text == controller.userProfile.value.username){
+                              isUsernameValidTmp = true;
+                            }
+                            isUsernameValid = isUsernameValidTmp;
+                            isPhoneValid =isPhoneValidTmp;
+                            isEmailValid = isEmailValidTmp;
+                            print("is usernameValid: ${isUsernameValid}");
+                          });
+
+                          if(isUsernameValid && isPhoneValid && isEmailValid){
+                            controller.saveData(
+                                image: _imagePicked,
+                                newEmail: emailController.text,
+                                newUsername: nameController.text,
+                                newPhone: phoneController.text);
+                          }
+
                         },
                         child: Text(
                           "59".tr,
