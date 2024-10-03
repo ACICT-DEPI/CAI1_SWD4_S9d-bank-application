@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vaulta/routes.dart';
+import 'package:vaulta/screen/splash_screen.dart';
 
 import 'core/localization/change_locale.dart';
 import 'core/localization/translation.dart';
@@ -37,21 +38,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       translations: MyTranslation(),
-      // routes: routes,
       getPages: routes,
-
       debugShowCheckedModeBanner: false,
       locale: controller.language,
       title: 'Flutter Demo',
       theme: controller.appTheme,
-      // home: TransferScreen(),
-      // home: const Language(),
+      home: const SplashScreen(), // SplashScreen as initial screen
     );
   }
 }

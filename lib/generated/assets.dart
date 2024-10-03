@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String animationsSplash = 'assets/animations/splash.json';
   static const String cairoCairoBlack = 'assets/fonts/Cairo/Cairo-Black.ttf';
   static const String cairoCairoBold = 'assets/fonts/Cairo/Cairo-Bold.ttf';
   static const String cairoCairoExtraBold =
@@ -29,9 +30,13 @@ class Assets {
   static const String imagesInternet = 'assets/images/internet.png';
   static const String imagesLogin = 'assets/images/login.png';
   static const String imagesLogo = 'assets/images/logo.png';
-  static const String imagesMibile = 'assets/images/mobile.png';
+  static const String imagesLogo1 = 'assets/images/logo1.png';
+  static const String imagesMobile = 'assets/images/mobile.png';
   static const String imagesOne = 'assets/images/one.png';
   static const String imagesSignup = 'assets/images/signup.png';
+  static const String imagesSplashScreen = 'assets/images/splash_screen.png';
+  static const String imagesSuccessPayment =
+      'assets/images/success_payment.png';
   static const String imagesSuccessTransfer =
       'assets/images/success_transfer.png';
   static const String imagesThree = 'assets/images/three.png';

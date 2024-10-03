@@ -78,6 +78,9 @@ dependencies:
   screenshot: ^3.0.0
   share: ^2.0.4
   path_provider: ^2.0.11
+  flutter_native_splash: ^2.4.1
+  lottie: ^3.1.2
+
 
 
 dev_dependencies:
@@ -150,4 +153,22 @@ flutter:
   # see https://flutter.dev/to/font-from-package
   assets:
     - assets/images/
+    - assets/animations/
 
+flutter_native_splash:
+  color: "#281C9D" # Set the background color to match your app's theme
+  image: assets/images/logo.png # Path to your logo or splash image (make sure the image is optimized for 4x resolution)
+  android_gravity: center # Positions the image in the center of the screen
+  ios_content_mode: center # Positions the image in the center for iOS as well
+  web_image_mode: center # Ensures the image is centered for web platforms too
+  fullscreen: true # Hides the notification bar to give a clean splash screen
+
+  # Android 12+ specific configuration
+  android_12:
+    color: "#281C9D" # Background color for Android 12+ devices
+    image: assets/images/logo.png # Your splash logo for Android 12+, centered within a circular mask
+    android_gravity: center
+
+#  # Dark mode configuration (Optional)
+#  color_dark: "#042a49" # Background color for dark mode
+#  image_dark: assets/images/logo_dark.png # Image for dark mode (if different from light mode)
