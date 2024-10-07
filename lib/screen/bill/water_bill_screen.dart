@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../controller/bill/water_bill_controller.dart';
 import '../../core/constant/color.dart';
 import '../../core/functions/valid_input.dart';
+import '../../core/shared/bill_controller.dart';
 import '../../widget/auth/custom_button_auth.dart';
 import '../../widget/auth/custom_textFormAuth.dart';
 import '../../widget/bill/bill_row.dart';
@@ -16,6 +17,7 @@ class WaterBillScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WaterBillControllerImpl controller = Get.put(WaterBillControllerImpl());
+    BillControllerImpl billController = Get.put(BillControllerImpl());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Water Bill'),
@@ -59,16 +61,21 @@ class WaterBillScreen extends StatelessWidget {
                             color: Colors.black),
                       ),
                       SizedBox(height: 20),
-                      const BillRow(label: 'Name', value: 'Ahmed Salah'),
+                      Obx(() => BillRow(
+                          label: 'Name', value: billController.username.value)),
                       const SizedBox(height: 16),
-                      const BillRow(
-                          label: 'Phone number', value: '01553161624'),
+                      Obx(() => BillRow(
+                          label: 'Phone number',
+                          value: billController.phoneNumber.value)),
                       const SizedBox(height: 16),
                       const BillRow(label: 'Code', value: '123456789'),
                       const SizedBox(height: 16),
-                      const BillRow(label: 'From', value: '1/1/2021'),
+                      BillRow(
+                          label: 'From', value: billController.getTodayDate()),
                       const SizedBox(height: 16),
-                      const BillRow(label: 'To', value: '1/2/2021'),
+                      BillRow(
+                          label: 'To',
+                          value: billController.getAfterMonthDate()),
                       const SizedBox(height: 16),
                       PriceItem(
                           label: 'Water fee',
@@ -117,7 +124,7 @@ class WaterBillScreen extends StatelessWidget {
                   labelTxt: 'Username',
                   myController: controller.usernameController,
                   validator: (val) {
-                    validInput(val!, 6, 30, 'username');
+                    return validInput(val!, 6, 30, 'username');
                   },
                   keyboardType: TextInputType.text),
             ),
@@ -125,7 +132,12 @@ class WaterBillScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0), // Add some padding
               child: CustomButtonAuth(
                 title: 'Pay the bill',
-                onPressed: () {},
+                onPressed: () {
+                  billController.goToSuccessPayment(
+                      controller.usernameController.text,
+                      'Water',
+                      'Water bill payment');
+                },
               ),
             ),
           ],

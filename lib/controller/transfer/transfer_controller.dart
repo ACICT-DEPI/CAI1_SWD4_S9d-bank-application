@@ -142,23 +142,23 @@ class TransferControllerImpl extends TransferController {
           }, dialogType: DialogType.error);
           return;
         }
+        if (isChecked) {
+          final resentQuerySnapshot = await FirebaseFirestore.instance
+              .collection('recents')
+              .where('fromid', isEqualTo: userId)
+              .where('to', isEqualTo: receiverSnapshot.docs.first['uid'])
+              .get();
 
-        // Check if both the receiverId and senderId exist in the 'recents' collection
-        final resentQuerySnapshot = await FirebaseFirestore.instance
-            .collection('recents')
-            .where('fromid', isEqualTo: userId)
-            .where('to', isEqualTo: receiverSnapshot.docs.first['uid'])
-            .get();
-
-        if (resentQuerySnapshot.docs.isNotEmpty) {
-          hideLoading(Get.context!);
-          showAwesomeDialog(Get.context!,
-              title: 'User Found',
-              desc: 'You can\'t add a user who already exists in the list',
-              onOk: () {
-            Get.back();
-          }, dialogType: DialogType.error);
-          return;
+          if (resentQuerySnapshot.docs.isNotEmpty) {
+            hideLoading(Get.context!);
+            showAwesomeDialog(Get.context!,
+                title: 'User Found',
+                desc: 'You can\'t add a user who already exists in the list',
+                onOk: () {
+              Get.back();
+            }, dialogType: DialogType.error);
+            return;
+          }
         }
 
         // Navigate to the confirmation page with transaction details

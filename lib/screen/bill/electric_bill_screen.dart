@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vaulta/controller/bill/electric_bill_controller.dart';
 import 'package:vaulta/core/constant/color.dart';
 import 'package:vaulta/core/functions/valid_input.dart';
+import 'package:vaulta/core/shared/bill_controller.dart';
 import 'package:vaulta/widget/auth/custom_button_auth.dart';
 import 'package:vaulta/widget/auth/custom_textFormAuth.dart';
 import 'package:vaulta/widget/bill/bill_row.dart';
@@ -16,6 +17,8 @@ class ElectricBillScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ElectricBillControllerImpl controller =
         Get.put(ElectricBillControllerImpl());
+    BillControllerImpl billController = Get.put(BillControllerImpl());
+
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
@@ -36,12 +39,12 @@ class ElectricBillScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
                   width: double.infinity,
-                  margin: EdgeInsets.symmetric(horizontal: 18),
-                  padding: EdgeInsets.all(16),
+                  margin: const EdgeInsets.symmetric(horizontal: 18),
+                  padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
                         blurRadius: 10,
@@ -52,24 +55,29 @@ class ElectricBillScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'All the Bills',
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
-                      SizedBox(height: 20),
-                      const BillRow(label: 'Name', value: 'Ahmed Salah'),
+                      const SizedBox(height: 20),
+                      Obx(() => BillRow(
+                          label: 'Name', value: billController.username.value)),
                       const SizedBox(height: 16),
-                      const BillRow(
-                          label: 'Phone number', value: '01553161624'),
+                      Obx(() => BillRow(
+                          label: 'Phone number',
+                          value: billController.phoneNumber.value)),
                       const SizedBox(height: 16),
                       const BillRow(label: 'Code', value: '123456789'),
                       const SizedBox(height: 16),
-                      const BillRow(label: 'From', value: '1/1/2021'),
+                      BillRow(
+                          label: 'From', value: billController.getTodayDate()),
                       const SizedBox(height: 16),
-                      const BillRow(label: 'To', value: '1/2/2021'),
+                      BillRow(
+                          label: 'To',
+                          value: billController.getAfterMonthDate()),
                       const SizedBox(height: 16),
                       PriceItem(
                           label: 'Electric fee',
@@ -82,12 +90,12 @@ class ElectricBillScreen extends StatelessWidget {
                           label: 'Tax',
                           price: '\$10',
                           color: AppColor.primaryColor),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       DashedDivider(),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             'TOTAL',
                             style: TextStyle(
@@ -110,15 +118,15 @@ class ElectricBillScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 24),
+              margin: const EdgeInsets.symmetric(horizontal: 24),
               child: CustomTextformAuth(
                   hintTxt: 'Enter your username',
                   labelTxt: 'Username',
                   myController: controller.usernameController,
                   validator: (val) {
-                    validInput(val!, 6, 30, 'username');
+                    return validInput(val!, 6, 30, 'username');
                   },
                   keyboardType: TextInputType.text),
             ),
@@ -126,7 +134,12 @@ class ElectricBillScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0), // Add some padding
               child: CustomButtonAuth(
                 title: 'Pay the bill',
-                onPressed: () {},
+                onPressed: () {
+                  billController.goToSuccessPayment(
+                      controller.usernameController.text,
+                      'Electric',
+                      'Electric bill payment');
+                },
               ),
             ),
           ],

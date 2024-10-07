@@ -118,6 +118,8 @@ class WithdrawControllerImpl extends WithdrawController {
               .collection('users')
               .doc(curentUserId)
               .update({'balance': newBalance});
+          update();
+
           Get.offAllNamed(AppRoute.successWithdrawScreen);
         }
       } else {
@@ -136,6 +138,7 @@ class WithdrawControllerImpl extends WithdrawController {
               .collection('users')
               .doc(curentUserId)
               .update({'balance': newBalance});
+          update();
           Get.offAllNamed(AppRoute.successWithdrawScreen);
         }
       }

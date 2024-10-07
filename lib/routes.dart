@@ -12,6 +12,7 @@ import 'package:vaulta/screen/bill/bill_screen.dart';
 import 'package:vaulta/screen/bill/electric_bill_screen.dart';
 import 'package:vaulta/screen/bill/internet_bill_screen.dart';
 import 'package:vaulta/screen/bill/mobile_bill_screen.dart';
+import 'package:vaulta/screen/bill/success_payment.dart';
 import 'package:vaulta/screen/bill/water_bill_screen.dart';
 import 'package:vaulta/screen/exchange.dart';
 import 'package:vaulta/screen/home.dart';
@@ -82,6 +83,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: AppRoute.mobileBillScreen, page: () => const MobileBillScreen()),
   GetPage(name: AppRoute.waterBillScreen, page: () => const WaterBillScreen()),
+  GetPage(
+      name: AppRoute.successPaymentScreen, page: () => const SuccessPayment()),
   GetPage(
       name: AppRoute.internetBillScreen,
       page: () => const InternetBillScreen()),

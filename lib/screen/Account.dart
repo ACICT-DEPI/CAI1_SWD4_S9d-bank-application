@@ -1,5 +1,7 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vaulta/core/constant/routes.dart';
 
 import '../widget/account/account_page.dart';
 import '../widget/account/card_page.dart';
@@ -19,7 +21,7 @@ class _AccountAndCardState extends State<AccountAndCard> {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, "/homePage");
+                Get.offAllNamed(AppRoute.homePage);
               },
               icon: Icon(Icons.arrow_back_ios_new_rounded)),
           title: Container(

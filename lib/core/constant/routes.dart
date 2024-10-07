@@ -30,4 +30,5 @@ class AppRoute {
   static const String mobileBillScreen = '/mobileBill';
   static const String waterBillScreen = '/waterBill';
   static const String internetBillScreen = '/internetBill';
+  static const String successPaymentScreen = '/successPayment';
 }
