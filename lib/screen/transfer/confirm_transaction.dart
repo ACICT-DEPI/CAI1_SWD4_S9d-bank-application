@@ -24,103 +24,105 @@ class ConfirmTransactionScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Form(
-        key: controller.formKey,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 24,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 24,
-              ),
-              Text(
-                'Confirm transaction information',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: AppColor.grey,
-                  fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Form(
+          key: controller.formKey,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 24,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 24,
                 ),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Text(
-                'From:',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-              ),
-              CustomTextformAuth(
-                  hintTxt: controller.isSelectPhone
-                      ? 'please enter your phone'
-                      : 'please enter your username',
-                  labelTxt: controller.isSelectPhone ? 'Phone' : 'Username',
-                  myController: controller.isSelectPhone
-                      ? controller.fromController
-                      : controller.fromController,
-                  validator: (val) {
-                    return validInput(val!, 7, 30,
-                        controller.isSelectPhone ? 'phone' : 'username');
-                  },
-                  keyboardType: controller.isSelectPhone
-                      ? TextInputType.phone
-                      : TextInputType.text),
-              SizedBox(
-                height: 12,
-              ),
-              Text(
-                'To:',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-              ),
-              CustomTextformAuth(
-                  hintTxt: controller.isSelectPhone
-                      ? 'please enter his phone'
-                      : 'please enter his username',
-                  labelTxt: controller.isSelectPhone ? 'Phone' : 'Username',
-                  myController: controller.isSelectPhone
-                      ? controller.toController
-                      : controller.toController,
-                  validator: (val) {
-                    return validInput(val!, 7, 30,
-                        controller.isSelectPhone ? 'phone' : 'username');
-                  },
-                  keyboardType: controller.isSelectPhone
-                      ? TextInputType.phone
-                      : TextInputType.text),
-              Text(
-                'Amount:',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-              ),
-              CustomTextformAuth(
-                  hintTxt: 'please enter the amount',
-                  labelTxt: 'Amount',
-                  myController: controller.amountController,
-                  validator: (val) {
-                    return validInput(val!, 2, 7, 'amount');
-                  },
-                  keyboardType: TextInputType.number),
-              const Text(
-                'Content:',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-              ),
-              CustomTextformAuth(
-                  hintTxt: 'please enter the content',
-                  labelTxt: 'Content',
-                  myController: controller.contentController,
-                  validator: (val) {
-                    return validInput(val!, 50, 1000, 'content');
-                  },
-                  keyboardType: TextInputType.text),
-              SizedBox(
-                height: 40,
-              ),
-              CustomButtonAuth(
-                  title: 'Confirm',
-                  onPressed: () {
-                    controller.goToSuccessTransferScreen();
-                  }),
-            ],
+                Text(
+                  'Confirm transaction information',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: AppColor.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  'From:',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
+                CustomTextformAuth(
+                    hintTxt: controller.isSelectPhone
+                        ? 'please enter your phone'
+                        : 'please enter your username',
+                    labelTxt: controller.isSelectPhone ? 'Phone' : 'Username',
+                    myController: controller.isSelectPhone
+                        ? controller.fromController
+                        : controller.fromController,
+                    validator: (val) {
+                      return validInput(val!, 7, 30,
+                          controller.isSelectPhone ? 'phone' : 'username');
+                    },
+                    keyboardType: controller.isSelectPhone
+                        ? TextInputType.phone
+                        : TextInputType.text),
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  'To:',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
+                CustomTextformAuth(
+                    hintTxt: controller.isSelectPhone
+                        ? 'please enter his phone'
+                        : 'please enter his username',
+                    labelTxt: controller.isSelectPhone ? 'Phone' : 'Username',
+                    myController: controller.isSelectPhone
+                        ? controller.toController
+                        : controller.toController,
+                    validator: (val) {
+                      return validInput(val!, 7, 30,
+                          controller.isSelectPhone ? 'phone' : 'username');
+                    },
+                    keyboardType: controller.isSelectPhone
+                        ? TextInputType.phone
+                        : TextInputType.text),
+                Text(
+                  'Amount:',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
+                CustomTextformAuth(
+                    hintTxt: 'please enter the amount',
+                    labelTxt: 'Amount',
+                    myController: controller.amountController,
+                    validator: (val) {
+                      return validInput(val!, 2, 7, 'amount');
+                    },
+                    keyboardType: TextInputType.number),
+                const Text(
+                  'Content:',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
+                CustomTextformAuth(
+                    hintTxt: 'please enter the content',
+                    labelTxt: 'Content',
+                    myController: controller.contentController,
+                    validator: (val) {
+                      return validInput(val!, 5, 300, 'content');
+                    },
+                    keyboardType: TextInputType.text),
+                SizedBox(
+                  height: 40,
+                ),
+                CustomButtonAuth(
+                    title: 'Confirm',
+                    onPressed: () {
+                      controller.goToSuccessTransferScreen();
+                    }),
+              ],
+            ),
           ),
         ),
       ),

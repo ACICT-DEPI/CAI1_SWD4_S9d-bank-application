@@ -10,6 +10,7 @@ class BillScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BillScreenControllerImpl controller = Get.put(BillScreenControllerImpl());
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pay the bill'),
@@ -20,7 +21,8 @@ class BillScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Expanded(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: ListView.builder(
           itemCount: billList.length,
           itemBuilder: (context, index) {

@@ -8,75 +8,53 @@ class BillListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        height: 130,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 3,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // Shadow position
-            ),
-          ],
-        ),
+    return Card(
+      elevation: 3,
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(24),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Image of the bill with rounded corners
+              // Bill image
               ClipRRect(
-                borderRadius: BorderRadius.circular(15.0), // Rounded image
+                borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
                   billModel.image,
-                  height: 90,
-                  width: 90,
+                  width: 80,
+                  height: 80,
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(width: 16), // Space between image and text
-              // Expanded Column for title and body
+              const SizedBox(width: 16),
+              // Bill details
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       billModel.title,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis, // Truncate overflow text
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87,
+                          ),
                     ),
-                    // const SizedBox(height: 8), // Space between title and body
+                    const SizedBox(height: 8),
                     Text(
                       billModel.body,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis, // Truncate overflow text
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontStyle: FontStyle.italic,
+                            color: Colors.grey[700],
+                          ),
                     ),
                   ],
                 ),
-              ),
-              // Optional action or icon button at the end
-              IconButton(
-                icon: const Icon(Icons.arrow_forward_ios),
-                color: Colors.grey,
-                onPressed: () {
-                  // Handle navigation or action
-                },
               ),
             ],
           ),

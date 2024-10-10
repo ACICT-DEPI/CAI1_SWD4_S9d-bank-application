@@ -65,99 +65,101 @@ class Login extends StatelessWidget {
             }),
         child: Container(
           color: AppColor.primaryColor,
-          child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
               ),
-            ),
-            height: screenSize.height,
-            width: screenSize.width,
-            child: Form(
-              key: controller.formKey,
-              child: ListView(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-                children: [
-                  CustomTextTitleAuth(title: '5'.tr),
-                  const SizedBox(height: 8),
-                  CustomTextBodyAuth(title: '47'.tr),
-                  const SizedBox(height: 24),
+              height: screenSize.height,
+              width: screenSize.width,
+              child: Form(
+                key: controller.formKey,
+                child: ListView(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                  children: [
+                    CustomTextTitleAuth(title: '5'.tr),
+                    const SizedBox(height: 8),
+                    CustomTextBodyAuth(title: '47'.tr),
+                    const SizedBox(height: 24),
 
-                  // New Position for GoogleLoginButton
+                    // New Position for GoogleLoginButton
 
-                  LogoAuth(imageAsset: AppImageassets.login),
-                  const SizedBox(height: 24),
+                    LogoAuth(imageAsset: AppImageassets.login),
+                    const SizedBox(height: 24),
 
-                  CustomTextformAuth(
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (val) {
-                      return validInput(val!, 5, 100, 'email');
-                    },
-                    hintTxt: '22'.tr,
-                    labelTxt: '23'.tr,
-                    myController: controller.emailController,
-                    isPassword: false,
-                  ),
-
-                  GetBuilder<LogInControllerImpl>(builder: (controller) {
-                    return CustomTextformAuth(
-                      onTapIcon: controller.showPassword,
-                      obscureText: controller.isShowPassword,
-                      keyboardType: TextInputType.text,
+                    CustomTextformAuth(
+                      keyboardType: TextInputType.emailAddress,
                       validator: (val) {
-                        return validInput(val!, 7, 30, 'password');
+                        return validInput(val!, 5, 100, 'email');
                       },
-                      isPassword: true,
-                      hintTxt: '24'.tr,
-                      icon: Icons.lock_outline,
-                      labelTxt: '25'.tr,
-                      myController: controller.passwordController,
-                    );
-                  }),
+                      hintTxt: '22'.tr,
+                      labelTxt: '23'.tr,
+                      myController: controller.emailController,
+                      isPassword: false,
+                    ),
 
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          controller.goToForgetPassword();
+                    GetBuilder<LogInControllerImpl>(builder: (controller) {
+                      return CustomTextformAuth(
+                        onTapIcon: controller.showPassword,
+                        obscureText: controller.isShowPassword,
+                        keyboardType: TextInputType.text,
+                        validator: (val) {
+                          return validInput(val!, 7, 30, 'password');
                         },
-                        child: Text(
-                          '29'.tr,
-                          style: const TextStyle(
-                            color: AppColor.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
+                        isPassword: true,
+                        hintTxt: '24'.tr,
+                        icon: Icons.lock_outline,
+                        labelTxt: '25'.tr,
+                        myController: controller.passwordController,
+                      );
+                    }),
+
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            controller.goToForgetPassword();
+                          },
+                          child: Text(
+                            '29'.tr,
+                            style: const TextStyle(
+                              color: AppColor.grey,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  CustomButtonAuth(
-                    title: '4'.tr,
-                    onPressed: () {
-                      controller.logIn();
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  GoogleLoginButton(
-                    onPressed: () {
-                      controller.signInWithGoogle();
-                    },
-                  ),
-                  CustomTextSignUpOrSignin(
-                    textOne: '30'.tr,
-                    textTwo: '19'.tr,
-                    onPressed: () {
-                      controller.goToSignUp();
-                    },
-                  ),
-                ],
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    CustomButtonAuth(
+                      title: '4'.tr,
+                      onPressed: () {
+                        controller.logIn();
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    GoogleLoginButton(
+                      onPressed: () {
+                        controller.signInWithGoogle();
+                      },
+                    ),
+                    CustomTextSignUpOrSignin(
+                      textOne: '30'.tr,
+                      textTwo: '19'.tr,
+                      onPressed: () {
+                        controller.goToSignUp();
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
