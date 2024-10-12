@@ -20,7 +20,7 @@ class WaterBillScreen extends StatelessWidget {
     BillControllerImpl billController = Get.put(BillControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Water Bill'),
+        title: Text('144'.tr),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -37,12 +37,12 @@ class WaterBillScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
                   width: double.infinity,
-                  margin: EdgeInsets.symmetric(horizontal: 18),
-                  padding: EdgeInsets.all(16),
+                  margin: const EdgeInsets.symmetric(horizontal: 18),
+                  padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black12,
                         blurRadius: 10,
@@ -54,48 +54,42 @@ class WaterBillScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'All the Bills',
+                        '124'.tr,
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Obx(() => BillRow(
-                          label: 'Name', value: billController.username.value)),
+                          label: '125'.tr,
+                          value: billController.username.value)),
                       const SizedBox(height: 16),
                       Obx(() => BillRow(
-                          label: 'Phone number',
+                          label: '98'.tr,
                           value: billController.phoneNumber.value)),
                       const SizedBox(height: 16),
-                      const BillRow(label: 'Code', value: '123456789'),
+                      BillRow(label: '126'.tr, value: '123456789'),
                       const SizedBox(height: 16),
                       BillRow(
-                          label: 'From', value: billController.getTodayDate()),
+                          label: '84'.tr, value: billController.getTodayDate()),
                       const SizedBox(height: 16),
                       BillRow(
-                          label: 'To',
+                          label: '85'.tr,
                           value: billController.getAfterMonthDate()),
                       const SizedBox(height: 16),
                       PriceItem(
-                          label: 'Water fee',
+                          label: '130'.tr,
                           price: '\$50',
                           color: AppColor.primaryColor),
                       const SizedBox(height: 12),
                       DashedDivider(),
                       const SizedBox(height: 16),
-                      PriceItem(
-                          label: 'Tax',
-                          price: '\$10',
-                          color: AppColor.primaryColor),
-                      SizedBox(height: 12),
-                      DashedDivider(),
-                      SizedBox(height: 16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'TOTAL',
+                            '132'.tr,
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -116,12 +110,12 @@ class WaterBillScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 24),
+              margin: const EdgeInsets.symmetric(horizontal: 24),
               child: CustomTextformAuth(
-                  hintTxt: 'Enter your username',
-                  labelTxt: 'Username',
+                  hintTxt: '20'.tr,
+                  labelTxt: '21'.tr,
                   myController: controller.usernameController,
                   validator: (val) {
                     return validInput(val!, 6, 30, 'username');
@@ -131,7 +125,7 @@ class WaterBillScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0), // Add some padding
               child: CustomButtonAuth(
-                title: 'Pay the bill',
+                title: '74'.tr,
                 onPressed: () {
                   billController.goToSuccessPayment(
                       controller.usernameController.text,

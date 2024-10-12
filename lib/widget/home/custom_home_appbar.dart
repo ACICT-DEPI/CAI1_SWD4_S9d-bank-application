@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomHomeAppbar extends StatelessWidget {
   const CustomHomeAppbar({
@@ -51,7 +52,7 @@ class CustomHomeAppbar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hi, $label',
+                '${'68'.tr}$label',
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
@@ -59,9 +60,9 @@ class CustomHomeAppbar extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
-              const Text(
-                'Welcome back!',
-                style: TextStyle(
+              Text(
+                '69'.tr,
+                style: const TextStyle(
                   color: Colors.white70,
                   fontSize: 14,
                 ),

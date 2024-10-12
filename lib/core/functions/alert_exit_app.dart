@@ -5,13 +5,13 @@ import 'package:get/get.dart';
 
 Future<bool> alertExitApp() {
   Get.defaultDialog(
-    title: 'Exit App',
+    title: '155'.tr,
     titleStyle: TextStyle(
       fontSize: 24,
       fontWeight: FontWeight.bold,
       color: Colors.redAccent,
     ),
-    middleText: 'Are you sure you want to exit the app?',
+    middleText: '156'.tr,
     middleTextStyle: TextStyle(
       fontSize: 18,
       color: Colors.grey[700],
@@ -30,7 +30,7 @@ Future<bool> alertExitApp() {
           ),
         ),
         child: Text(
-          'No',
+          '157'.tr,
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -45,7 +45,7 @@ Future<bool> alertExitApp() {
           ),
         ),
         child: Text(
-          'Yes',
+          '158'.tr,
           style: TextStyle(color: Colors.white),
         ),
       ),

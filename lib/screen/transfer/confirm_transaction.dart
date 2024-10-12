@@ -16,7 +16,7 @@ class ConfirmTransactionScreen extends StatelessWidget {
         Get.put(ConfirmTransactionControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Confirm Transaction'),
+        title: Text('104'.tr),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -38,7 +38,7 @@ class ConfirmTransactionScreen extends StatelessWidget {
                   height: 24,
                 ),
                 Text(
-                  'Confirm transaction information',
+                  '105'.tr,
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColor.grey,
@@ -49,14 +49,12 @@ class ConfirmTransactionScreen extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  'From:',
+                  '106'.tr,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
                 CustomTextformAuth(
-                    hintTxt: controller.isSelectPhone
-                        ? 'please enter your phone'
-                        : 'please enter your username',
-                    labelTxt: controller.isSelectPhone ? 'Phone' : 'Username',
+                    hintTxt: controller.isSelectPhone ? '26'.tr : '20'.tr,
+                    labelTxt: controller.isSelectPhone ? '27'.tr : '21'.tr,
                     myController: controller.isSelectPhone
                         ? controller.fromController
                         : controller.fromController,
@@ -71,14 +69,12 @@ class ConfirmTransactionScreen extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  'To:',
+                  '107'.tr,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
                 CustomTextformAuth(
-                    hintTxt: controller.isSelectPhone
-                        ? 'please enter his phone'
-                        : 'please enter his username',
-                    labelTxt: controller.isSelectPhone ? 'Phone' : 'Username',
+                    hintTxt: controller.isSelectPhone ? '26'.tr : '20'.tr,
+                    labelTxt: controller.isSelectPhone ? '27'.tr : '21'.tr,
                     myController: controller.isSelectPhone
                         ? controller.toController
                         : controller.toController,
@@ -90,24 +86,24 @@ class ConfirmTransactionScreen extends StatelessWidget {
                         ? TextInputType.phone
                         : TextInputType.text),
                 Text(
-                  'Amount:',
+                  '61'.tr,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
                 CustomTextformAuth(
-                    hintTxt: 'please enter the amount',
-                    labelTxt: 'Amount',
+                    hintTxt: '108'.tr,
+                    labelTxt: '67'.tr,
                     myController: controller.amountController,
                     validator: (val) {
                       return validInput(val!, 2, 7, 'amount');
                     },
                     keyboardType: TextInputType.number),
-                const Text(
-                  'Content:',
+                Text(
+                  '109'.tr,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
                 CustomTextformAuth(
-                    hintTxt: 'please enter the content',
-                    labelTxt: 'Content',
+                    hintTxt: '110'.tr,
+                    labelTxt: '111'.tr,
                     myController: controller.contentController,
                     validator: (val) {
                       return validInput(val!, 5, 300, 'content');
@@ -117,7 +113,7 @@ class ConfirmTransactionScreen extends StatelessWidget {
                   height: 40,
                 ),
                 CustomButtonAuth(
-                    title: 'Confirm',
+                    title: '77'.tr,
                     onPressed: () {
                       controller.goToSuccessTransferScreen();
                     }),

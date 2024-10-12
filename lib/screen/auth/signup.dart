@@ -44,8 +44,8 @@ class SignUp extends StatelessWidget {
       body: WillPopScope(
         onWillPop: () => showAwesomeDialog(
           context,
-          title: 'Exit',
-          desc: 'Are you sure you want to go out?',
+          title: '135'.tr,
+          desc: '134'.tr,
           onOk: () {
             exit(0);
           },

@@ -29,20 +29,20 @@ class SignupControllerImpl extends SignupController {
       showLoading(Get.context!);
 
       try {
-        final usernameCheck = await firestore
-            .collection('users')
-            .where('username', isEqualTo: usernameController.text)
-            .get();
-
-        if (usernameCheck.docs.isNotEmpty) {
-          hideLoading(Get.context!);
-          showAwesomeDialog(Get.context!,
-              title: 'Error',
-              desc: 'The username is already in use.', onOk: () {
-            Get.back();
-          }, dialogType: DialogType.error);
-          return;
-        }
+        // final usernameCheck = await firestore
+        //     .collection('users')
+        //     .where('username', isEqualTo: usernameController.text)
+        //     .get();
+        //
+        // if (usernameCheck.docs.isNotEmpty) {
+        //   hideLoading(Get.context!);
+        //   showAwesomeDialog(Get.context!,
+        //       title: 'Error',
+        //       desc: 'The username is already in use.', onOk: () {
+        //     Get.back();
+        //   }, dialogType: DialogType.error);
+        //   return;
+        // }
 
         final credential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(

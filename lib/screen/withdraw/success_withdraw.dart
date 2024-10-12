@@ -28,7 +28,7 @@ class SuccessWithdraw extends StatelessWidget {
             ),
             SizedBox(height: 24),
             Text(
-              'Successful withdrawal!',
+              '95'.tr,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -38,7 +38,7 @@ class SuccessWithdraw extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'You have successfully withdrawn money!\nPlease check the balance in the card management section.',
+              '96'.tr,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black54,
@@ -53,7 +53,7 @@ class SuccessWithdraw extends StatelessWidget {
                   controller.goToHome();
                 },
                 child: Text(
-                  'Confirm',
+                  '77'.tr,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.white,

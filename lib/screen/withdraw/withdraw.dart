@@ -14,7 +14,7 @@ class WithdrawScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Withdraw', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text('70'.tr, style: TextStyle(fontWeight: FontWeight.bold)),
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
@@ -45,7 +45,7 @@ class WithdrawScreen extends StatelessWidget {
                 // Dropdown for selecting card
                 DropdownButtonFormField<String>(
                   decoration: InputDecoration(
-                    labelText: 'Select method',
+                    labelText: '97'.tr,
                     labelStyle: TextStyle(fontSize: 18),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -53,15 +53,15 @@ class WithdrawScreen extends StatelessWidget {
                     filled: true,
                     fillColor: Colors.grey[100],
                   ),
-                  value: 'Username',
+                  value: '21'.tr,
                   onChanged: (String? newValue) {
                     controller.selectTransaction(newValue!);
                   },
-                  items: ['Username', 'Phone Number']
+                  items: ['21'.tr, '98'.tr]
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value, style: TextStyle(fontSize: 16)),
+                      child: Text(value, style: const TextStyle(fontSize: 16)),
                     );
                   }).toList(),
                 ),
@@ -71,9 +71,7 @@ class WithdrawScreen extends StatelessWidget {
                 GetBuilder<WithdrawControllerImpl>(builder: (context) {
                   return TextFormField(
                     decoration: InputDecoration(
-                      labelText: controller.isSelectPhone
-                          ? 'Enter phone number'
-                          : 'Enter username',
+                      labelText: controller.isSelectPhone ? '99'.tr : '100'.tr,
                       labelStyle: TextStyle(fontSize: 18),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -102,7 +100,7 @@ class WithdrawScreen extends StatelessWidget {
                   return controller.selectedAmount == 'Other'
                       ? TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'Enter amount',
+                            labelText: '83'.tr,
                             labelStyle: TextStyle(fontSize: 18),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -120,7 +118,7 @@ class WithdrawScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Choose amount',
+                              '101'.tr,
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w600),
                             ),
@@ -159,7 +157,7 @@ class WithdrawScreen extends StatelessWidget {
                                     onTap: () => controller.selectAmount('200'),
                                   ),
                                   WithdrawAmountItem(
-                                    amount: 'Other',
+                                    amount: '103'.tr,
                                     selected:
                                         controller.selectedAmount == 'Other',
                                     onTap: () =>
@@ -189,7 +187,7 @@ class WithdrawScreen extends StatelessWidget {
                       controller.goToSuccess();
                     },
                     child: Text(
-                      'Verify',
+                      '102'.tr,
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.white,

@@ -43,7 +43,7 @@ class SuccessTransferScreen extends StatelessWidget {
 
                         // Success Text
                         Text(
-                          'Transfer Successful!',
+                          '112'.tr,
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -55,7 +55,7 @@ class SuccessTransferScreen extends StatelessWidget {
 
                         // Transfer details
                         Text(
-                          'You have successfully transferred:',
+                          '113'.tr,
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black87,
@@ -64,7 +64,7 @@ class SuccessTransferScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          '\$${controller.amount} to ${controller.toUsername}!',
+                          '\$${controller.amount} ${'114'.tr} ${controller.toUsername}!',
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class SuccessTransferScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: CustomButtonAuth(
-                          title: 'Go to Home',
+                          title: '115'.tr,
                           onPressed: () {
                             controller.goToHomeScreen();
                           },
@@ -115,8 +115,8 @@ class SuccessTransferScreen extends StatelessWidget {
                       Icons.share_outlined,
                       color: Colors.white,
                     ),
-                    label: const Text(
-                      'Share Receipt',
+                    label: Text(
+                      '116'.tr,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

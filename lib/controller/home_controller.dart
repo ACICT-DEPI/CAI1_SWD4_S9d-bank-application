@@ -80,26 +80,26 @@ class HomeControllerImpl extends HomeController {
 
   @override
   goToTransferScreen() {
-    Get.offNamed(AppRoute.transfer);
+    Get.toNamed(AppRoute.transfer);
   }
 
   @override
   goToAccountScreen() {
-    Get.offNamed(AppRoute.accountAndCardScreen);
+    Get.toNamed(AppRoute.accountAndCardScreen);
   }
 
   @override
   goToTransactionScreen() {
-    Get.offNamed(AppRoute.transactionReport);
+    Get.toNamed(AppRoute.transactionReport);
   }
 
   @override
   goToWithdrawScreen() {
-    Get.offNamed(AppRoute.withdrawScreen);
+    Get.toNamed(AppRoute.withdrawScreen);
   }
 
   @override
   goToBillScreen() {
-    Get.offNamed(AppRoute.billScreen);
+    Get.toNamed(AppRoute.billScreen);
   }
 }

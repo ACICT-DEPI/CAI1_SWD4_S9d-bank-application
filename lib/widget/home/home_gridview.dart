@@ -24,31 +24,31 @@ class HomeGridview extends StatelessWidget {
                 controller.goToWithdrawScreen();
               },
               imagePath: AppImageassets.withdrawImage,
-              label: 'Withdraw'),
+              label: '70'.tr),
           GridViewItem(
               onTap: () {
                 controller.goToTransferScreen();
               },
               imagePath: AppImageassets.transferImage,
-              label: 'Transfer'),
+              label: '71'.tr),
           GridViewItem(
               onTap: () {
                 controller.goToTransactionScreen();
               },
               imagePath: AppImageassets.reportImage,
-              label: 'Transaction'),
+              label: '72'.tr),
           GridViewItem(
               onTap: () {
                 controller.goToAccountScreen();
               },
               imagePath: AppImageassets.accountImage,
-              label: 'Account'),
+              label: '73'.tr),
           GridViewItem(
               onTap: () {
                 controller.goToBillScreen();
               },
               imagePath: AppImageassets.billImage,
-              label: 'Pay the bill'),
+              label: '74'.tr),
         ],
       ),
     );

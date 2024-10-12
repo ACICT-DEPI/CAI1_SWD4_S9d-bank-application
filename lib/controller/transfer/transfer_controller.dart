@@ -31,7 +31,7 @@ class TransferControllerImpl extends TransferController {
   var recentTransactions = [].obs;
   @override
   goToHome() {
-    Get.offNamed(AppRoute.homePage);
+    Get.offAllNamed(AppRoute.homePage);
   }
 
   @override
@@ -100,9 +100,7 @@ class TransferControllerImpl extends TransferController {
         // Check if balance is enough
         if (int.parse(amountController.text) > userDoc['balance']) {
           hideLoading(Get.context!);
-          showAwesomeDialog(Get.context!,
-              title: 'Balance',
-              desc: 'Your balance isn\'t enough to complete the transaction',
+          showAwesomeDialog(Get.context!, title: '151'.tr, desc: '173'.tr,
               onOk: () {
             Get.back();
           }, dialogType: DialogType.error);
@@ -135,9 +133,8 @@ class TransferControllerImpl extends TransferController {
         }
         if (receiverSnapshot.docs.first['uid'] == userId) {
           hideLoading(Get.context!);
-          showAwesomeDialog(Get.context!,
-              title: 'Error',
-              desc: 'You can\'t transfer to yourself', onOk: () {
+          showAwesomeDialog(Get.context!, title: '182'.tr, desc: '183'.tr,
+              onOk: () {
             Get.back();
           }, dialogType: DialogType.error);
           return;
@@ -151,9 +148,7 @@ class TransferControllerImpl extends TransferController {
 
           if (resentQuerySnapshot.docs.isNotEmpty) {
             hideLoading(Get.context!);
-            showAwesomeDialog(Get.context!,
-                title: 'User Found',
-                desc: 'You can\'t add a user who already exists in the list',
+            showAwesomeDialog(Get.context!, title: '184'.tr, desc: '185'.tr,
                 onOk: () {
               Get.back();
             }, dialogType: DialogType.error);
@@ -179,8 +174,8 @@ class TransferControllerImpl extends TransferController {
     } catch (e) {
       hideLoading(Get.context!);
       print('Error: $e');
-      showAwesomeDialog(Get.context!,
-          title: 'Error', desc: 'An unexpected error occurred', onOk: () {
+      showAwesomeDialog(Get.context!, title: '182'.tr, desc: '186'.tr,
+          onOk: () {
         Get.back();
       }, dialogType: DialogType.error);
     }

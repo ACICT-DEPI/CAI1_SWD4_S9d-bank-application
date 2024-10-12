@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vaulta/core/constant/imageAssets.dart';
 
 class GoogleLoginButton extends StatelessWidget {
@@ -39,8 +40,8 @@ class GoogleLoginButton extends StatelessWidget {
                   width: 24,
                 ),
                 const SizedBox(width: 12),
-                const Text(
-                  'Sign in with Google',
+                Text(
+                  '133'.tr,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black54,

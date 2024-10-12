@@ -15,22 +15,22 @@ class AddUserDialog extends StatelessWidget {
     AddUserRecentControllerImpl controller =
         Get.put(AddUserRecentControllerImpl());
     return AlertDialog(
-      title: const Text("Add New User"),
+      title: Text('63'.tr),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           isPhone
               ? CustomTextformAuth(
-                  hintTxt: 'Please enter his phone',
-                  labelTxt: 'Phone',
+                  hintTxt: '64'.tr,
+                  labelTxt: '27'.tr,
                   myController: controller.addUserController,
                   validator: (val) {
-                    validInput(val!, 10, 11, 'phone');
+                    return validInput(val!, 10, 11, 'phone');
                   },
                   keyboardType: TextInputType.phone)
               : CustomTextformAuth(
-                  hintTxt: 'Please enter his username',
-                  labelTxt: 'Username',
+                  hintTxt: '65'.tr,
+                  labelTxt: '21'.tr,
                   myController: controller.addUserController,
                   validator: (val) {
                     validInput(val!, 10, 30, 'username');
@@ -45,10 +45,10 @@ class AddUserDialog extends StatelessWidget {
             // Close the dialog without saving
             Navigator.of(context).pop();
           },
-          child: const Text("Cancel"),
+          child: Text("67".tr),
         ),
         CustomButtonAuth(
-            title: 'Add',
+            title: '66'.tr,
             onPressed: () {
               controller.addUser(isPhone);
             }),

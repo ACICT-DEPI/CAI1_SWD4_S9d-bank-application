@@ -29,8 +29,8 @@ class SuccessPayment extends StatelessWidget {
               const SizedBox(height: 30),
 
               // Title
-              const Text(
-                "Transaction successfully!",
+              Text(
+                "147".tr,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -41,8 +41,8 @@ class SuccessPayment extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Subtitle
-              const Text(
-                "You've pay your bill!",
+              Text(
+                "148".tr,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black54,
@@ -64,8 +64,8 @@ class SuccessPayment extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: const Text(
-                  "Ok",
+                child: Text(
+                  "138".tr,
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),

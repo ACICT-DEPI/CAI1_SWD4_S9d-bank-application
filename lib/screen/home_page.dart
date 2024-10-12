@@ -26,20 +26,20 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         tabBackgroundColor: AppColor.primaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        tabs: const [
+        tabs: [
           GButton(
             icon: Icons.home,
-            text: 'Home',
+            text: '80'.tr,
             margin: EdgeInsets.all(10),
           ),
           GButton(
             icon: Icons.currency_exchange_outlined,
-            text: 'Exchange',
+            text: '81'.tr,
             margin: EdgeInsets.all(10),
           ),
           GButton(
             icon: Icons.settings_outlined,
-            text: 'Settings',
+            text: '82'.tr,
             margin: EdgeInsets.all(10),
           ),
         ],

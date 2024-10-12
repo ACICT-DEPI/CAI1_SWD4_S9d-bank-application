@@ -37,14 +37,14 @@ class LogInControllerImpl extends LogInController {
                 email: emailController.text, password: passwordController.text);
         myServices.sharedPreferences.setString('userid', credential.user!.uid);
         if (credential.user!.emailVerified) {
-          Get.offNamed(AppRoute.homePage);
+          Get.offAllNamed(AppRoute.homePage);
         } else {
           FirebaseAuth.instance.currentUser!.sendEmailVerification();
 
           showAwesomeDialog(
             Get.context!,
-            title: 'Error',
-            desc: 'Please verify your email',
+            title: '182'.tr,
+            desc: '187'.tr,
             onOk: () {
               Get.back();
             },
@@ -56,8 +56,8 @@ class LogInControllerImpl extends LogInController {
         if (e.code == 'user-not-found') {
           showAwesomeDialog(
             Get.context!,
-            title: 'Error',
-            desc: 'No user found for that email.',
+            title: '182'.tr,
+            desc: '188'.tr,
             onOk: () {
               Get.back();
             },
@@ -66,8 +66,8 @@ class LogInControllerImpl extends LogInController {
         } else if (e.code == 'wrong-password') {
           showAwesomeDialog(
             Get.context!,
-            title: 'Error',
-            desc: 'Wrong password provided for that user.',
+            title: '182'.tr,
+            desc: '189'.tr,
             onOk: () {
               Get.back();
             },
@@ -76,8 +76,8 @@ class LogInControllerImpl extends LogInController {
         } else if (e.code == 'invalid-email') {
           showAwesomeDialog(
             Get.context!,
-            title: 'Error',
-            desc: 'Invalid email provided.',
+            title: '182'.tr,
+            desc: '190'.tr,
             onOk: () {
               Get.back();
             },
@@ -86,8 +86,8 @@ class LogInControllerImpl extends LogInController {
         } else if (e.code == 'user-disabled') {
           showAwesomeDialog(
             Get.context!,
-            title: 'Error',
-            desc: 'The user account has been disabled by an administrator.',
+            title: '182'.tr,
+            desc: '191'.tr,
             onOk: () {
               Get.back();
             },
@@ -96,8 +96,8 @@ class LogInControllerImpl extends LogInController {
         } else if (e.code == 'invalid-credential') {
           showAwesomeDialog(
             Get.context!,
-            title: 'Error',
-            desc: 'Check your email or password',
+            title: '182'.tr,
+            desc: '192'.tr,
             onOk: () {
               Get.back();
             },
@@ -106,8 +106,8 @@ class LogInControllerImpl extends LogInController {
         } else {
           showAwesomeDialog(
             Get.context!,
-            title: 'Login Failed',
-            desc: 'Something went wrong: ${e.code}',
+            title: '193'.tr,
+            desc: '${'194'.tr}${e.code}',
             onOk: () {
               Get.back();
             },
@@ -117,8 +117,8 @@ class LogInControllerImpl extends LogInController {
       } catch (e) {
         showAwesomeDialog(
           Get.context!,
-          title: 'Error',
-          desc: 'An unexpected error occurred: $e',
+          title: '182'.tr,
+          desc: '${'195'.tr}$e',
           onOk: () {
             Get.back();
           },
@@ -158,8 +158,8 @@ class LogInControllerImpl extends LogInController {
       if (emailController.text.isEmpty) {
         showAwesomeDialog(
           Get.context!,
-          title: 'Error',
-          desc: 'Please enter your email address',
+          title: '182'.tr,
+          desc: '196'.tr,
           onOk: () {
             Get.back();
           },
@@ -179,8 +179,8 @@ class LogInControllerImpl extends LogInController {
       if (findEmail.docs.isEmpty) {
         showAwesomeDialog(
           Get.context!,
-          title: 'Error',
-          desc: 'No account found with that email address.',
+          title: '182'.tr,
+          desc: '197'.tr,
           onOk: () {
             Get.back();
           },
@@ -197,8 +197,8 @@ class LogInControllerImpl extends LogInController {
       if (e.code == 'invalid-email') {
         showAwesomeDialog(
           Get.context!,
-          title: 'Error',
-          desc: 'Invalid email provided.',
+          title: '182'.tr,
+          desc: '198'.tr,
           onOk: () {
             Get.back();
           },
@@ -207,8 +207,8 @@ class LogInControllerImpl extends LogInController {
       } else if (e.code == 'user-not-found') {
         showAwesomeDialog(
           Get.context!,
-          title: 'Error',
-          desc: 'No account found with that email address.',
+          title: '182'.tr,
+          desc: '188'.tr,
           onOk: () {
             Get.back();
           },
@@ -217,8 +217,8 @@ class LogInControllerImpl extends LogInController {
       } else {
         showAwesomeDialog(
           Get.context!,
-          title: 'Error',
-          desc: 'Something went wrong: ${e.code}',
+          title: '182'.tr,
+          desc: '${'194'.tr}${e.code}',
           onOk: () {
             Get.back();
           },
@@ -228,8 +228,8 @@ class LogInControllerImpl extends LogInController {
     } catch (e) {
       showAwesomeDialog(
         Get.context!,
-        title: 'Error',
-        desc: 'An unexpected error occurred: $e',
+        title: '182'.tr,
+        desc: '${'195'.tr}$e',
         onOk: () {
           Get.back();
         },
@@ -284,8 +284,8 @@ class LogInControllerImpl extends LogInController {
           'profile_picture': '',
         });
         // Show dialog with generated username
-        showAwesomeDialog(Get.context!,
-            title: uniqueUsername, desc: 'Here is your username', onOk: () {
+        showAwesomeDialog(Get.context!, title: uniqueUsername, desc: '199'.tr,
+            onOk: () {
           Get.offAllNamed(AppRoute.homePage);
         }, dialogType: DialogType.success);
 

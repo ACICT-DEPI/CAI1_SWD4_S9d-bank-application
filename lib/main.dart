@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
       getPages: routes,
       debugShowCheckedModeBanner: false,
       locale: controller.language,
-      title: 'Flutter Demo',
+      title: 'Vaulta',
       theme: controller.appTheme,
       home: const SplashScreen(), // SplashScreen as initial screen
     );

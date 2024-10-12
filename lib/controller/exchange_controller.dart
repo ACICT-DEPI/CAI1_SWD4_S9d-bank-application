@@ -19,7 +19,7 @@ class ExchangeControllerImpl extends ExchangeController {
     double res;
 
     if (amountController.text.isEmpty) {
-      resultController.text = "Please enter an amount";
+      resultController.text = "169".tr;
       return;
     }
 
@@ -101,7 +101,7 @@ class ExchangeControllerImpl extends ExchangeController {
       calc = amount * 0.075;
       res = calc;
     } else {
-      resultController.text = "Invalid, please choose currencies first";
+      resultController.text = "170".tr;
       return;
     }
 

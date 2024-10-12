@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ReportItem extends StatelessWidget {
   const ReportItem(
@@ -72,7 +73,7 @@ class ReportItem extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Amount:",
+                    "61".tr,
                     style: TextStyle(
                         fontStyle: FontStyle.italic,
                         fontSize: 14,

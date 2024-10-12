@@ -16,23 +16,23 @@ List<OnboardingModel> onBoardingList = [
 ];
 List<BillModel> billList = [
   BillModel(
-    title: 'Electric bill',
-    body: 'Pay electric bill this month',
+    title: '123'.tr,
+    body: '140'.tr,
     image: AppImageassets.electricImage,
   ),
   BillModel(
-    title: 'Water bill',
-    body: 'Pay water bill this month',
+    title: '144'.tr,
+    body: '141'.tr,
     image: AppImageassets.waterImage,
   ),
   BillModel(
-    title: 'Mobile bill',
-    body: 'Pay mobile bill this month',
+    title: '145'.tr,
+    body: '142'.tr,
     image: AppImageassets.mobileImage,
   ),
   BillModel(
-    title: 'Internet bill',
-    body: 'Pay internet bill this month',
+    title: '146'.tr,
+    body: '143'.tr,
     image: AppImageassets.internetImage,
   ),
 ];

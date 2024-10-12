@@ -82,10 +82,7 @@ class WithdrawControllerImpl extends WithdrawController {
       print(userBalance);
       if (isSelectPhone) {
         if (phoneController.text != userDoc['phone']) {
-          showAwesomeDialog(Get.context!,
-              title: 'Invalid Phone Number',
-              desc:
-                  'The phone number you entered does not match the phone number in your account',
+          showAwesomeDialog(Get.context!, title: '161'.tr, desc: '171'.tr,
               onOk: () {
             Get.back();
           }, dialogType: DialogType.error);
@@ -93,10 +90,7 @@ class WithdrawControllerImpl extends WithdrawController {
         }
       } else {
         if (usernameController.text != userDoc['username']) {
-          showAwesomeDialog(Get.context!,
-              title: 'Invalid Username',
-              desc:
-                  'The username you entered does not match the username in your account',
+          showAwesomeDialog(Get.context!, title: '159'.tr, desc: '172'.tr,
               onOk: () {
             Get.back();
           }, dialogType: DialogType.error);
@@ -106,9 +100,7 @@ class WithdrawControllerImpl extends WithdrawController {
       if (selectedAmount == 'Other') {
         var amount = int.parse(amountController.text);
         if (amount > userBalance) {
-          showAwesomeDialog(Get.context!,
-              title: 'Insufficient Balance',
-              desc: 'You do not have enough balance to make this transaction',
+          showAwesomeDialog(Get.context!, title: '151'.tr, desc: '173'.tr,
               onOk: () {
             Get.back();
           }, dialogType: DialogType.error);
@@ -126,9 +118,7 @@ class WithdrawControllerImpl extends WithdrawController {
         selectedAmount.replaceAll('\$', '');
         var amount = int.parse(selectedAmount);
         if (amount > userBalance) {
-          showAwesomeDialog(Get.context!,
-              title: 'Insufficient Balance',
-              desc: 'You do not have enough balance to make this transaction',
+          showAwesomeDialog(Get.context!, title: '151'.tr, desc: '173'.tr,
               onOk: () {
             Get.back();
           }, dialogType: DialogType.error);
@@ -143,9 +133,8 @@ class WithdrawControllerImpl extends WithdrawController {
         }
       }
     } else {
-      showAwesomeDialog(Get.context!,
-          title: 'Empty Fields',
-          desc: 'Please fill up the fields and try again', onOk: () {
+      showAwesomeDialog(Get.context!, title: '174'.tr, desc: '175'.tr,
+          onOk: () {
         Get.back();
       }, dialogType: DialogType.error);
     }

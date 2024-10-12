@@ -58,22 +58,19 @@ class BillControllerImpl extends BillController {
             'to': type,
             'content': content,
           });
-          showAwesomeDialog(Get.context!,
-              title: 'Success',
-              desc: 'Your payment has been successful', onOk: () {
+          showAwesomeDialog(Get.context!, title: '149'.tr, desc: '150'.tr,
+              onOk: () {
             Get.offAllNamed(AppRoute.successPaymentScreen);
           }, dialogType: DialogType.success);
         } else {
-          showAwesomeDialog(Get.context!,
-              title: 'Insufficient balance',
-              desc: 'Your balance is not enough to pay the bill', onOk: () {
+          showAwesomeDialog(Get.context!, title: '151'.tr, desc: '152'.tr,
+              onOk: () {
             Get.back();
           }, dialogType: DialogType.error);
         }
       } else {
-        showAwesomeDialog(Get.context!,
-            title: 'Wrong username',
-            desc: 'Check your username and try again', onOk: () {
+        showAwesomeDialog(Get.context!, title: '153'.tr, desc: '154'.tr,
+            onOk: () {
           Get.back();
         }, dialogType: DialogType.error);
       }

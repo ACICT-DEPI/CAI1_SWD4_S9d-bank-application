@@ -28,7 +28,7 @@ class TransactionReportScreen extends StatelessWidget {
                 color: Colors.white,
               ),
               Text(
-                "Transaction Report",
+                "60".tr,
                 style: const TextStyle(
                     fontSize: 20,
                     color: Colors.white,
@@ -57,18 +57,15 @@ class TransactionReportScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    // Wrap ListView with Expanded to provide bounded height
                     Expanded(
                       child: Obx(() {
-                        // Remove the controller.getTransactionReport() call here
                         return ListView.separated(
-                          shrinkWrap: true, // Shrink to fit available height
+                          shrinkWrap: true,
                           itemCount: controller.transactionList.length,
                           itemBuilder: (context, index) {
                             final transactionReport =
                                 controller.transactionList[index];
 
-                            // Use the controller method to get the correct username to display
                             String displayName = controller
                                 .getDisplayUsername(transactionReport);
                             String amount =
@@ -78,20 +75,18 @@ class TransactionReportScreen extends StatelessWidget {
                             bool isReceived =
                                 transactionReport['status'] == 'received';
 
-                            // Get the timestamp and format it to only day, month, and time
                             Timestamp timestamp =
                                 transactionReport['timestamp'];
                             DateTime dateTime = timestamp.toDate();
-                            String formattedDate = DateFormat('dd MMM, hh:mm a')
-                                .format(
-                                    dateTime); // Format date to "day month, time"
+                            String formattedDate =
+                                DateFormat('dd MMM, hh:mm a').format(dateTime);
 
                             return ReportItem(
                               toName: displayName,
                               amount: amount,
                               content: content,
                               isReceived: isReceived,
-                              date: formattedDate, // Pass formatted date here
+                              date: formattedDate,
                             );
                           },
                           separatorBuilder: (context, index) =>

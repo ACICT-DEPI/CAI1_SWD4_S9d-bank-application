@@ -47,9 +47,8 @@ class AddUserRecentControllerImpl extends AddUserRecentController {
       }
       if (userCheck.docs.isNotEmpty) {
         addUserController.clear();
-        showAwesomeDialog(Get.context!,
-            title: 'User already added',
-            desc: 'The user is already in the recent list', onOk: () {
+        showAwesomeDialog(Get.context!, title: '176'.tr, desc: '177'.tr,
+            onOk: () {
           Get.back();
         }, dialogType: DialogType.error);
         return;
@@ -88,17 +87,14 @@ class AddUserRecentControllerImpl extends AddUserRecentController {
         addUserController.clear();
 
         // Show success dialog
-        showAwesomeDialog(Get.context!,
-            title: 'User added',
-            desc: 'The user has been added to the recent list', onOk: () {
+        showAwesomeDialog(Get.context!, title: '178'.tr, desc: '179'.tr,
+            onOk: () {
           Get.back();
         }, dialogType: DialogType.success);
       } else {
         addUserController.clear();
         // User not found
-        showAwesomeDialog(Get.context!,
-            title: 'User not found',
-            desc: 'Re-check the username/phone because it\'s not found',
+        showAwesomeDialog(Get.context!, title: '180'.tr, desc: '181'.tr,
             onOk: () {
           Get.back();
         }, dialogType: DialogType.error);

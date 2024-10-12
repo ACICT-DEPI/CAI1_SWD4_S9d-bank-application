@@ -13,7 +13,7 @@ class BillScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pay the bill'),
+        title: Text('74'.tr),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {

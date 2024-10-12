@@ -26,7 +26,8 @@ class SplashScreenControllerImpl extends SplashScreenController {
     // Check if onboarding has been completed
     if (myServices.sharedPreferences.getString('onboarding') != '1') {
       Get.offAllNamed(AppRoute.language); // Navigate to the language screen
-    } else if (user != null) {
+    } else if (user != null ||
+        myServices.sharedPreferences.getString('userid') != null) {
       Get.offAllNamed(AppRoute.homePage); // User is logged in, go to home
     } else {
       Get.offAllNamed(AppRoute.login); // User is not logged in, go to login

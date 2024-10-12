@@ -19,7 +19,7 @@ class TransferScreen extends StatelessWidget {
     TransferControllerImpl controller = Get.put(TransferControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Transfer'),
+        title: Text('71'.tr),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -34,7 +34,7 @@ class TransferScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Choose Transaction',
+                '117'.tr,
                 style: TextStyle(
                   fontSize: 18,
                   color: AppColor.grey,
@@ -46,7 +46,7 @@ class TransferScreen extends StatelessWidget {
                 return Row(
                   children: [
                     ContainerTransactions(
-                      title: 'Transfer via\nusername',
+                      title: '118'.tr,
                       icon: Icons.person,
                       onTap: () {
                         controller.selectTransaction('username');
@@ -55,7 +55,7 @@ class TransferScreen extends StatelessWidget {
                     ),
                     SizedBox(width: 16),
                     ContainerTransactions(
-                      title: 'Transfer via\nphone number',
+                      title: '119'.tr,
                       icon: Icons.phone,
                       onTap: () {
                         controller.selectTransaction('phone');
@@ -69,7 +69,7 @@ class TransferScreen extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                'Recent Transaction',
+                '120'.tr,
                 style: TextStyle(
                   fontSize: 18,
                   color: AppColor.grey,
@@ -102,8 +102,8 @@ class TransferScreen extends StatelessWidget {
                       child: GetBuilder<TransferControllerImpl>(
                         builder: (controller) {
                           if (controller.recentTransactions.isEmpty) {
-                            return const Center(
-                              child: Text("No recent transactions available"),
+                            return Center(
+                              child: Text("121".tr),
                             );
                           }
                           return ListView.builder(
@@ -142,11 +142,9 @@ class TransferScreen extends StatelessWidget {
                   children: [
                     GetBuilder<TransferControllerImpl>(builder: (context) {
                       return CustomTextformAuth(
-                          hintTxt: controller.isSelectPhone
-                              ? 'please enter his phone'
-                              : 'please enter his username',
+                          hintTxt: controller.isSelectPhone ? '64'.tr : '65'.tr,
                           labelTxt:
-                              controller.isSelectPhone ? 'Phone' : 'Username',
+                              controller.isSelectPhone ? '27'.tr : '21'.tr,
                           myController: controller.isSelectPhone
                               ? controller.phoneController
                               : controller.usernameController,
@@ -167,8 +165,8 @@ class TransferScreen extends StatelessWidget {
                       height: 12,
                     ),
                     CustomTextformAuth(
-                        hintTxt: 'please enter the amount',
-                        labelTxt: 'Amount',
+                        hintTxt: '108'.tr,
+                        labelTxt: '76'.tr,
                         myController: controller.amountController,
                         validator: (val) {
                           return validInput(val!, 2, 7, 'amount');
@@ -178,8 +176,8 @@ class TransferScreen extends StatelessWidget {
                       height: 12,
                     ),
                     CustomTextformAuth(
-                        hintTxt: 'please enter the content',
-                        labelTxt: 'Content',
+                        hintTxt: '110'.tr,
+                        labelTxt: '111'.tr,
                         myController: controller.contentController,
                         validator: (val) {
                           return validInput(val!, 10, 1000, 'content');
@@ -202,8 +200,7 @@ class TransferScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4),
                         ),
                         checkColor: Colors.white,
-                        fillColor: MaterialStateProperty.resolveWith(
-                            (states) => AppColor.primaryColor),
+                        activeColor: AppColor.primaryColor,
                         value: controller.isChecked,
                         onChanged: (value) {
                           controller.changeCheckbox(value!);
@@ -213,7 +210,7 @@ class TransferScreen extends StatelessWidget {
                   }),
                   SizedBox(width: 12),
                   Text(
-                    'Save to directory of recents',
+                    '122'.tr,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
@@ -222,7 +219,7 @@ class TransferScreen extends StatelessWidget {
                 ],
               ),
               CustomButtonAuth(
-                  title: 'Confirm',
+                  title: '77'.tr,
                   onPressed: () {
                     controller.goToConfirmTransaction();
                   }),

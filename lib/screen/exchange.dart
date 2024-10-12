@@ -14,7 +14,7 @@ class ExchangeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Exchange"),
+        title: Text("81".tr),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -34,7 +34,7 @@ class ExchangeScreen extends StatelessWidget {
               controller: controller.amountController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'Enter Amount',
+                labelText: '83'.tr,
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 suffixIcon: IconButton(
@@ -50,13 +50,13 @@ class ExchangeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("From",
+                Text("84".tr,
                     style: TextStyle(fontSize: 16, color: Colors.pinkAccent)),
                 Obx(() => DropdownButton<String>(
                       value: controller.valueChoose.value.isEmpty
                           ? null
                           : controller.valueChoose.value,
-                      items: ['QAR', 'USD', 'EUR', 'EGP', 'BHD']
+                      items: ['86'.tr, '87'.tr, '88'.tr, '89'.tr, '90'.tr]
                           .map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -72,13 +72,13 @@ class ExchangeScreen extends StatelessWidget {
                   child: Image.asset(AppImageassets.arrow,
                       width: 100, height: 100),
                 ),
-                Text("To",
+                Text("85".tr,
                     style: TextStyle(fontSize: 16, color: Colors.pinkAccent)),
                 Obx(() => DropdownButton<String>(
                       value: controller.valueChoose1.value.isEmpty
                           ? null
                           : controller.valueChoose1.value,
-                      items: ['QAR', 'USD', 'EUR', 'EGP', 'BHD']
+                      items: ['86'.tr, '87'.tr, '88'.tr, '89'.tr, '90'.tr]
                           .map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -96,7 +96,7 @@ class ExchangeScreen extends StatelessWidget {
             TextField(
               controller: controller.resultController,
               decoration: InputDecoration(
-                hintText: "Result",
+                hintText: "91".tr,
                 labelStyle: TextStyle(fontSize: 16, color: Colors.black),
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
@@ -107,7 +107,7 @@ class ExchangeScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               child: CustomButtonAuth(
-                  title: 'Exchange',
+                  title: '92'.tr,
                   onPressed: () {
                     controller.calculateExchange();
                   }),

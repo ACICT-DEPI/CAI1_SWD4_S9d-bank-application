@@ -27,8 +27,8 @@ class SuccessSignUp extends StatelessWidget {
             const SizedBox(height: 30),
 
             // Title
-            const Text(
-              "Email sent successfully!",
+            Text(
+              "136".tr,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -39,8 +39,8 @@ class SuccessSignUp extends StatelessWidget {
             const SizedBox(height: 16),
 
             // Subtitle
-            const Text(
-              "We have sent an email to verify your account. Please check your email to complete your sign in.",
+            Text(
+              "137".tr,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black54,
@@ -62,8 +62,8 @@ class SuccessSignUp extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text(
-                "Ok",
+              child: Text(
+                "138".tr,
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
