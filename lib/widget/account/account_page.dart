@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 import 'package:get/get.dart';
 import 'package:vaulta/controller/account_page_controller.dart';
-import 'package:vaulta/core/constant/coloroverride
+
+import '../../core/constant/color.dart';
+
+class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+
+  @override
   Widget build(BuildContext context) {
     AccountPageControllerImp controller = Get.put(AccountPageControllerImp());
     TextEditingController amountController = TextEditingController();

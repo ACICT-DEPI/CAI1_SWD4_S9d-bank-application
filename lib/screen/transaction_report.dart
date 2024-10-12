@@ -20,13 +20,6 @@ class TransactionReportScreen extends StatelessWidget {
           backgroundColor: AppColor.primaryColor,
           title: Row(
             children: [
-              IconButton(
-                onPressed: () {
-                  controller.goToHome();
-                },
-                icon: const Icon(Icons.arrow_back_ios),
-                color: Colors.white,
-              ),
               Text(
                 "60".tr,
                 style: const TextStyle(
@@ -35,6 +28,12 @@ class TransactionReportScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               )
             ],
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+            onPressed: () {
+              controller.goToHome();
+            },
           ),
         ),
         body: Stack(alignment: Alignment.topCenter, children: [

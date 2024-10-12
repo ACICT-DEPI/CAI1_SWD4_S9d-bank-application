@@ -29,7 +29,6 @@ class HomeScreen extends StatelessWidget {
               return InkWell(
                 onTap: () {
                   homePageController.changeTab(2); // Set tab to Settings tab
-                  homePageController.selectedIndex.value = 2;
                 },
                 child: Padding(
                   padding: EdgeInsets.only(top: 16.0),
